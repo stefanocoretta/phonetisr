@@ -17,3 +17,5 @@ Imports: stringr,
   tibble,
   tidyverse,
   Unicode
+Depends: 
+    R (>= 2.10)

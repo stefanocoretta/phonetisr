@@ -1,0 +1,69 @@
+---
+title: "Scape Klingon Swadesh list"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = here::here())
+library(tidyverse)
+library(rvest)
+```
+
+```{r scrape-table}
+source <- "https://en.wiktionary.org/wiki/Appendix:Klingon_Swadesh_list"
+
+kl_swadesh <- read_html(source) %>%
+  html_nodes("table") %>%
+  .[1] %>%
+  html_table(fill = TRUE) %>%
+  .[[1]] %>%
+  rename(
+    id = No.,
+    gloss = English,
+    translit = KlingontlhIngan
+  )
+```
+
+```{r to-ipa}
+to_ipa <- function(spell) {
+  str_replace_all({{spell}}, c(
+    "tlh" = "T",
+    "ch" = "C",
+    "gh" = "ɣ",
+    "ng" = "ŋ",
+    "p" = "pʰ",
+    "t" = "tʰ",
+    "q" = "qʰ",
+    "'" = "ʔ",
+    "T" = "tɬ",
+    "C" = "tʃ",
+    "D" = "ɖ",
+    "Q" = "qχ",
+    "j" = "dʒ",
+    "S" = "ʂ",
+    "H" = "x",
+    "y" = "j",
+    "I" = "ɪ",
+    "e" = "ɛ",
+    "a" = "ɑ"
+    )
+  )
+}
+
+kl_swadesh <- kl_swadesh %>%
+  mutate(
+    ipa = to_ipa(translit),
+    ipa = str_split(ipa, ", ")
+  ) %>%
+  filter(translit != "", gloss != "with") %>%
+  unnest(cols = ipa)
+
+attr(kl_swadesh, "source") <- source
+attr(kl_swadesh, "scrape-data") <- Sys.Date()
+```
+
+```{r save}
+usethis::use_data(kl_swadesh, overwrite = TRUE)
+```
+
