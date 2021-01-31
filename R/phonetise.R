@@ -5,11 +5,18 @@
 #' `ipa`, the IPA strings, and `ipa_token`, the tokenised IPA strings as a list
 #' column.
 #'
-#' @param strings A charcter vector with a list of words in IPA.
+#' @param strings A character vector with a list of words in IPA.
 #' @param multichar A character vector of one or more multi-character phones as
 #'   strings.
 #'
 #' @return A tibble.
+#'
+#' @examples
+#' ipa <- c("pʰãk", "tʰum̥", "ɛkʰɯ")
+#' ph <- c("pʰ", "tʰ", "kʰ", "ã", "m̥")
+#'
+#' phonetise(ipa, ph)
+#'
 #' @export
 phonetise <- function(strings, multichar) {
   multichar_len <- length(multichar)
@@ -28,8 +35,5 @@ phonetise <- function(strings, multichar) {
   ipa_mc <- multichar
   names(ipa_mc) <- pua
 
-  tibble::tibble(
-    ipa = strings,
-    ipa_token = lapply(strings_pua_token, function(.x) stringr::str_replace_all(.x, ipa_mc))
-  )
+  lapply(strings_pua_token, function(.x) stringr::str_replace_all(.x, ipa_mc))
 }
