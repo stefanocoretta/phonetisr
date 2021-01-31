@@ -7,7 +7,7 @@
 phonetise(strings, multichar)
 }
 \arguments{
-\item{strings}{A charcter vector with a list of words in IPA.}
+\item{strings}{A character vector with a list of words in IPA.}
 
 \item{multichar}{A character vector of one or more multi-character phones as
 strings.}
@@ -20,4 +20,11 @@ A tibble.
 of words) into individual "phones". The output is a tibble with two columns:
 \code{ipa}, the IPA strings, and \code{ipa_token}, the tokenised IPA strings as a list
 column.
+}
+\examples{
+ipa <- c("pʰãk", "tʰum̥", "ɛkʰɯ")
+ph <- c("pʰ", "tʰ", "kʰ", "ã", "m̥")
+
+phonetise(ipa, ph)
+
 }
