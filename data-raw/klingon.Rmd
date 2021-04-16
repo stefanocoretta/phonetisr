@@ -1,5 +1,5 @@
 ---
-title: "Scape Klingon Swadesh list"
+title: "Scrape Klingon Swadesh list"
 output: html_document
 ---
 

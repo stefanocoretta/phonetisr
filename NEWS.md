@@ -2,6 +2,8 @@
 
 ## Added
 
-* Added a `NEWS.md` file to track changes to the package.
+* `phonetise()` to tokenise phones from IPA transcriptions.
 
-* Added `phonetise()`.
+* `kl_swadesh.rda` with the Swadesh list of Klingon in transliteration and IPA transcription.
+
+* `ipa_symbols.rda` with info on all the IPA symbols.

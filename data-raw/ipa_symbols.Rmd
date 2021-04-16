@@ -1,0 +1,56 @@
+---
+title: "Prepare IPA symbols data table"
+author: "Stefano Coretta"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = here::here())
+library(tidyverse)
+```
+
+```{r}
+ipa_symbols <- read_csv("./data-raw/ipa_symbols.csv") %>%
+  mutate(
+    specs_n = lengths(str_split(ipa_name, " ")),
+    spec_1 = word(ipa_name, 1),
+    type = case_when(
+      spec_1 %in% c("voiceless", "voiced", "simultaneous", "epiglottal") & specs_n > 1 ~ "consonant",
+      spec_1 %in% c("open", "close", "open-mid", "close-mid", "lax", "raised", "lowered", "mid-central") & specs_n > 1 ~ "vowel",
+      TRUE ~ "diacritic"
+    ),
+    height = case_when(
+      type == "vowel" & specs_n == 2 ~ word(ipa_name, 1),
+      type == "vowel" & specs_n == 3 ~ word(ipa_name, 1),
+      type == "vowel" & specs_n == 4 ~ word(ipa_name, 1, 2)
+    ),
+    backness = case_when(
+      type == "vowel" & specs_n == 2 ~ word(ipa_name, 1),
+      type == "vowel" & specs_n == 3 ~ word(ipa_name, 2),
+      type == "vowel" & specs_n == 4 ~ word(ipa_name, 3)
+    ),
+    rounding = case_when(
+      type == "vowel" ~ ifelse(word(ipa_name, -1) == "schwa", "unrounded", word(ipa_name, -1))
+    ),
+    voicing = case_when(
+      type == "consonant" ~ ifelse(word(ipa_name, 1) %in% c("voiceless", "voiced"), word(ipa_name, 1), "voiceless")
+    ),
+    place = case_when(
+      type == "consonant" & specs_n == 2 ~ word(ipa_name, 1),
+      type == "consonant" & specs_n > 2 ~ ifelse(word(ipa_name, 1) == "simultaneous", "postalveolar-velar", word(ipa_name, 2))
+    ),
+    manner = case_when(
+      type == "consonant" & specs_n == 2 ~ word(ipa_name, 2),
+      type == "consonant" & specs_n == 3 ~ word(ipa_name, 3),
+      TRUE ~ "fricative"
+    ),
+    lateral = str_detect(ipa_name, "lateral")
+  ) %>%
+  dplyr::select(-specs_n, -spec_1)
+```
+
+```{r}
+usethis::use_data(ipa_symbols, overwrite = TRUE)
+```
+
