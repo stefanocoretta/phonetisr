@@ -10,13 +10,17 @@ knitr::opts_knit$set(root.dir = here::here())
 library(tidyverse)
 ```
 
-```{r}
+```{r ipa-syms}
 ipa_symbols <- read_csv("./data-raw/ipa_symbols.csv") %>%
   mutate(
     specs_n = lengths(str_split(ipa_name, " ")),
     spec_1 = word(ipa_name, 1),
     type = case_when(
-      spec_1 %in% c("voiceless", "voiced", "simultaneous", "epiglottal") & specs_n > 1 ~ "consonant",
+      spec_1 %in% c(
+        "voiceless", "voiced", "simultaneous", "epiglottal", "retroflex") &
+        specs_n > 1 &
+        str_detect(uni_name, pattern = "modifier", negate = TRUE) &
+        str_detect(uni_name, pattern = "combining", negate = TRUE) ~ "consonant",
       spec_1 %in% c("open", "close", "open-mid", "close-mid", "lax", "raised", "lowered", "mid-central") & specs_n > 1 ~ "vowel",
       TRUE ~ "diacritic"
     ),
@@ -50,7 +54,7 @@ ipa_symbols <- read_csv("./data-raw/ipa_symbols.csv") %>%
   dplyr::select(-specs_n, -spec_1)
 ```
 
-```{r}
+```{r save}
 usethis::use_data(ipa_symbols, overwrite = TRUE)
 ```
 

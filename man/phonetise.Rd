@@ -4,13 +4,26 @@
 \alias{phonetise}
 \title{Tokenise IPA strings}
 \usage{
-phonetise(strings, multichar)
+phonetise(
+  strings,
+  multichar = NULL,
+  multi_regex = NULL,
+  sanitise = TRUE,
+  sanitize = sanitise
+)
 }
 \arguments{
 \item{strings}{A character vector with a list of words in IPA.}
 
 \item{multichar}{A character vector of one or more multi-character phones as
 strings.}
+
+\item{multi_regex}{A vector with regular expressions to match several
+multi-character phones.}
+
+\item{sanitise}{Whether to remove all non-IPA characters (\code{TRUE} by default).}
+
+\item{sanitize}{Alias of \code{sanitize}.}
 }
 \value{
 A tibble.
@@ -22,9 +35,17 @@ of words) into individual "phones". The output is a tibble with two columns:
 column.
 }
 \examples{
-ipa <- c("pʰãk", "tʰum̥", "ɛkʰɯ")
+ipa <- c("pʰãkʰ", "tʰum̥", "ɛkʰɯ")
 ph <- c("pʰ", "tʰ", "kʰ", "ã", "m̥")
 
 phonetise(ipa, ph)
+
+ph_2 <- ph[4:5]
+
+# Match any character followed by <ʰ> with ".ʰ".
+phonetise(ipa, ph_2, ".ʰ")
+
+# Same result.
+phonetise(ipa, multi_regex = ".(\u0303|\u0325|\u02B0)")
 
 }

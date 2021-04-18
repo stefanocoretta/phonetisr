@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# phonetisr: A Naive IPA Tokeniser
+# phonetisr: A Very Naive IPA Tokeniser
 
 <!-- badges: start -->
 <!-- badges: end -->
@@ -27,7 +27,7 @@ remotes::install_github("stefanocoretta/phonetisr")
 
 ## Roadmap
 
--   [ ] Scan for illegal (non-IPA) characters.
+-   [x] Scan for illegal (non-IPA) characters.
 -   [ ] Provide a list of default multi-character phones.
 -   [ ] Functions for data import/export.
 -   [ ] Ignore diacritics.
