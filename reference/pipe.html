@@ -22,7 +22,7 @@
   }
 </script>
 
-<title>Tokenise IPA strings — phonetise • phonetisr</title>
+<title>Pipe operator — %&gt;% • phonetisr</title>
 
 
 <!-- jquery -->
@@ -65,11 +65,8 @@
 
 
 
-<meta property="og:title" content="Tokenise IPA strings — phonetise" />
-<meta property="og:description" content="phonetise() tokenises strings of IPA symbols (like phonetic transcriptions
-of words) into individual &quot;phones&quot;. The output is a tibble with two columns:
-ipa, the IPA strings, and ipa_token, the tokenised IPA strings as a list
-column." />
+<meta property="og:title" content="Pipe operator — %&gt;%" />
+<meta property="og:description" content="See magrittr::%&amp;gt;% for details." />
 
 
 
@@ -143,96 +140,34 @@ column." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Tokenise IPA strings</h1>
+    <h1>Pipe operator</h1>
     
-    <div class="hidden name"><code>phonetise.Rd</code></div>
+    <div class="hidden name"><code>pipe.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p><code>phonetise()</code> tokenises strings of IPA symbols (like phonetic transcriptions
-of words) into individual "phones". The output is a tibble with two columns:
-<code>ipa</code>, the IPA strings, and <code>ipa_token</code>, the tokenised IPA strings as a list
-column.</p>
+    <p>See <code>magrittr::%&gt;%</code> for details.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>phonetise</span><span class='op'>(</span>
-  <span class='va'>strings</span>,
-  multichar <span class='op'>=</span> <span class='cn'>NULL</span>,
-  multi_regex <span class='op'>=</span> <span class='cn'>NULL</span>,
-  sanitise <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  sanitize <span class='op'>=</span> <span class='va'>sanitise</span>
-<span class='op'>)</span></pre>
+    <pre class="usage"><span class='va'>lhs</span> <span class='op'>%&gt;%</span> <span class='va'>rhs</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>strings</th>
-      <td><p>A character vector with a list of words in IPA.</p></td>
+      <th>lhs</th>
+      <td><p>A value or the magrittr placeholder.</p></td>
     </tr>
     <tr>
-      <th>multichar</th>
-      <td><p>A character vector of one or more multi-character phones as
-strings.</p></td>
-    </tr>
-    <tr>
-      <th>multi_regex</th>
-      <td><p>A vector with regular expressions to match several
-multi-character phones.</p></td>
-    </tr>
-    <tr>
-      <th>sanitise</th>
-      <td><p>Whether to remove all non-IPA characters (<code>TRUE</code> by default).</p></td>
-    </tr>
-    <tr>
-      <th>sanitize</th>
-      <td><p>Alias of <code>sanitize</code>.</p></td>
+      <th>rhs</th>
+      <td><p>A function call using the magrittr semantics.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A tibble.</p>
+    <p>The result of calling <code>rhs(lhs)</code>.</p>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>ipa</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"pʰãkʰ"</span>, <span class='st'>"tʰum̥"</span>, <span class='st'>"ɛkʰɯ"</span><span class='op'>)</span>
-<span class='va'>ph</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"pʰ"</span>, <span class='st'>"tʰ"</span>, <span class='st'>"kʰ"</span>, <span class='st'>"ã"</span>, <span class='st'>"m̥"</span><span class='op'>)</span>
-
-<span class='fu'>phonetise</span><span class='op'>(</span><span class='va'>ipa</span>, <span class='va'>ph</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [[1]]
-#&gt; [1] "pʰ" "ã"  "kʰ"
-#&gt; 
-#&gt; [[2]]
-#&gt; [1] "tʰ" "u"  "m̥" 
-#&gt; 
-#&gt; [[3]]
-#&gt; [1] "ɛ"  "kʰ" "ɯ" 
-#&gt; </div><div class='input'>
-<span class='va'>ph_2</span> <span class='op'>&lt;-</span> <span class='va'>ph</span><span class='op'>[</span><span class='fl'>4</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>]</span>
-
-<span class='co'># Match any character followed by &lt;ʰ&gt; with ".ʰ".</span>
-<span class='fu'>phonetise</span><span class='op'>(</span><span class='va'>ipa</span>, <span class='va'>ph_2</span>, <span class='st'>".ʰ"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [[1]]
-#&gt; [1] "pʰ" "ã"  "kʰ"
-#&gt; 
-#&gt; [[2]]
-#&gt; [1] "tʰ" "u"  "m̥" 
-#&gt; 
-#&gt; [[3]]
-#&gt; [1] "ɛ"  "kʰ" "ɯ" 
-#&gt; </div><div class='input'>
-<span class='co'># Same result.</span>
-<span class='fu'>phonetise</span><span class='op'>(</span><span class='va'>ipa</span>, multi_regex <span class='op'>=</span> <span class='st'>".(\u0303|\u0325|\u02B0)"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [[1]]
-#&gt; [1] "pʰ" "ã"  "kʰ"
-#&gt; 
-#&gt; [[2]]
-#&gt; [1] "tʰ" "u"  "m̥" 
-#&gt; 
-#&gt; [[3]]
-#&gt; [1] "ɛ"  "kʰ" "ɯ" 
-#&gt; </div><div class='input'>
-</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
