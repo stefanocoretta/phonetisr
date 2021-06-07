@@ -157,10 +157,20 @@ column.</p>
 
     <pre class="usage"><span class='fu'>phonetise</span><span class='op'>(</span>
   <span class='va'>strings</span>,
-  multichar <span class='op'>=</span> <span class='cn'>NULL</span>,
-  multi_regex <span class='op'>=</span> <span class='cn'>NULL</span>,
+  multi <span class='op'>=</span> <span class='cn'>NULL</span>,
+  regex <span class='op'>=</span> <span class='cn'>NULL</span>,
   sanitise <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  sanitize <span class='op'>=</span> <span class='va'>sanitise</span>
+  sanitize <span class='op'>=</span> <span class='va'>sanitise</span>,
+  default_multi <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span>
+
+<span class='fu'>phonetize</span><span class='op'>(</span>
+  <span class='va'>strings</span>,
+  multi <span class='op'>=</span> <span class='cn'>NULL</span>,
+  regex <span class='op'>=</span> <span class='cn'>NULL</span>,
+  sanitise <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  sanitize <span class='op'>=</span> <span class='va'>sanitise</span>,
+  default_multi <span class='op'>=</span> <span class='cn'>FALSE</span>
 <span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -171,13 +181,13 @@ column.</p>
       <td><p>A character vector with a list of words in IPA.</p></td>
     </tr>
     <tr>
-      <th>multichar</th>
+      <th>multi</th>
       <td><p>A character vector of one or more multi-character phones as
 strings.</p></td>
     </tr>
     <tr>
-      <th>multi_regex</th>
-      <td><p>A vector with regular expressions to match several
+      <th>regex</th>
+      <td><p>A string with a regular expression to match several
 multi-character phones.</p></td>
     </tr>
     <tr>
@@ -188,17 +198,21 @@ multi-character phones.</p></td>
       <th>sanitize</th>
       <td><p>Alias of <code>sanitize</code>.</p></td>
     </tr>
+    <tr>
+      <th>default_multi</th>
+      <td><p>If set to <code>TRUE</code>, parses all valid diacritics as part of the previous character (<code>FALSE</code> by default).</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A tibble.</p>
+    <p>A list.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>ipa</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"pʰãkʰ"</span>, <span class='st'>"tʰum̥"</span>, <span class='st'>"ɛkʰɯ"</span><span class='op'>)</span>
 <span class='va'>ph</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"pʰ"</span>, <span class='st'>"tʰ"</span>, <span class='st'>"kʰ"</span>, <span class='st'>"ã"</span>, <span class='st'>"m̥"</span><span class='op'>)</span>
 
-<span class='fu'>phonetise</span><span class='op'>(</span><span class='va'>ipa</span>, <span class='va'>ph</span><span class='op'>)</span>
+<span class='fu'>phonetise</span><span class='op'>(</span><span class='va'>ipa</span>, multi <span class='op'>=</span> <span class='va'>ph</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [[1]]
 #&gt; [1] "pʰ" "ã"  "kʰ"
 #&gt; 
@@ -211,7 +225,7 @@ multi-character phones.</p></td>
 <span class='va'>ph_2</span> <span class='op'>&lt;-</span> <span class='va'>ph</span><span class='op'>[</span><span class='fl'>4</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>]</span>
 
 <span class='co'># Match any character followed by &lt;ʰ&gt; with ".ʰ".</span>
-<span class='fu'>phonetise</span><span class='op'>(</span><span class='va'>ipa</span>, <span class='va'>ph_2</span>, <span class='st'>".ʰ"</span><span class='op'>)</span>
+<span class='fu'>phonetise</span><span class='op'>(</span><span class='va'>ipa</span>, multi <span class='op'>=</span> <span class='va'>ph_2</span>, regex <span class='op'>=</span> <span class='st'>".ʰ"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [[1]]
 #&gt; [1] "pʰ" "ã"  "kʰ"
 #&gt; 
@@ -222,7 +236,20 @@ multi-character phones.</p></td>
 #&gt; [1] "ɛ"  "kʰ" "ɯ" 
 #&gt; </div><div class='input'>
 <span class='co'># Same result.</span>
-<span class='fu'>phonetise</span><span class='op'>(</span><span class='va'>ipa</span>, multi_regex <span class='op'>=</span> <span class='st'>".(\u0303|\u0325|\u02B0)"</span><span class='op'>)</span>
+<span class='fu'>phonetise</span><span class='op'>(</span><span class='va'>ipa</span>, regex <span class='op'>=</span> <span class='st'>".(\u0303|\u0325|\u02B0)"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
+#&gt; [1] "pʰ" "ã"  "kʰ"
+#&gt; 
+#&gt; [[2]]
+#&gt; [1] "tʰ" "u"  "m̥" 
+#&gt; 
+#&gt; [[3]]
+#&gt; [1] "ɛ"  "kʰ" "ɯ" 
+#&gt; </div><div class='input'>
+<span class='va'>ipa</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"pʰãkʰ"</span>, <span class='st'>"tʰum̥"</span>, <span class='st'>"ɛkʰɯ"</span><span class='op'>)</span>
+<span class='va'>ph</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"pʰ"</span>, <span class='st'>"tʰ"</span>, <span class='st'>"kʰ"</span>, <span class='st'>"ã"</span>, <span class='st'>"m̥"</span><span class='op'>)</span>
+
+<span class='fu'>phonetise</span><span class='op'>(</span><span class='va'>ipa</span>, multi <span class='op'>=</span> <span class='va'>ph</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [[1]]
 #&gt; [1] "pʰ" "ã"  "kʰ"
 #&gt; 
