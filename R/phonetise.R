@@ -6,9 +6,9 @@
 #' column.
 #'
 #' @param strings A character vector with a list of words in IPA.
-#' @param multichar A character vector of one or more multi-character phones as
+#' @param multi A character vector of one or more multi-character phones as
 #'   strings.
-#' @param multi_regex A vector with regular expressions to match several
+#' @param regex A string with a regular expression to match several
 #'   multi-character phones.
 #' @param sanitise Whether to remove all non-IPA characters (`TRUE` by default).
 #' @param sanitize Alias of `sanitize`.
@@ -19,18 +19,19 @@
 #' ipa <- c("pʰãkʰ", "tʰum̥", "ɛkʰɯ")
 #' ph <- c("pʰ", "tʰ", "kʰ", "ã", "m̥")
 #'
-#' phonetise(ipa, ph)
+#' phonetise(ipa, multi = ph)
 #'
 #' ph_2 <- ph[4:5]
 #'
 #' # Match any character followed by <ʰ> with ".ʰ".
-#' phonetise(ipa, ph_2, ".ʰ")
+#' phonetise(ipa, multi = ph_2, regex = ".ʰ")
 #'
 #' # Same result.
-#' phonetise(ipa, multi_regex = ".(\u0303|\u0325|\u02B0)")
+#' phonetise(ipa, regex = ".(\u0303|\u0325|\u02B0)")
 #'
 #' @export
-phonetise <- function(strings, multichar = NULL, multi_regex = NULL, sanitise = TRUE, sanitize = sanitise) {
+phonetise <- function(strings, multi = NULL, regex = NULL, sanitise = TRUE,
+                      sanitize = sanitise, default_multi = FALSE) {
   if (sanitise | sanitize) {
     strings_no_ipa <- lapply(
       Unicode::as.u_char_seq(stringi::stri_trans_nfd(strings), ""),
@@ -49,34 +50,34 @@ phonetise <- function(strings, multichar = NULL, multi_regex = NULL, sanitise = 
 
   # Prepare multicharacter list if specified ########################
 
-  if (!is.null(multichar)) {
-    multichar_len <- length(multichar)
+  if (!is.null(multi)) {
+    multi_len <- length(multi)
   } else {
     # Set to zero if no multichar is specified so that nothing is added to
     # multichar_len later
-    multichar_len <- 0
+    multi_len <- 0
   }
 
-  if (!is.null(multi_regex)) {
-    multichar_rx <- stringr::str_extract_all(strings, multi_regex) %>%
+  if (!is.null(regex)) {
+    multi_rx <- stringr::str_extract_all(strings, regex) %>%
       unlist() %>%
       unique()
 
-    multichar_len <- multichar_len + length(multichar_rx)
-    multichar <- c(multichar, multichar_rx)
+    multi_len <- multi_len + length(multi_rx)
+    multi <- c(multi, multi_rx)
   }
 
   ####
   # Main tokeniser procedure ########################################
   ####
 
-  if (!is.null(multichar)) {
+  if (!is.null(multi)) {
     pua <- intToUtf8(
-      Unicode::as.u_char_seq(Unicode::u_blocks("Private Use Area")[[1]])[[1]][1:multichar_len],
+      Unicode::as.u_char_seq(Unicode::u_blocks("Private Use Area")[[1]])[[1]][1:multi_len],
       multiple = T
     )
 
-    names(pua) <- multichar
+    names(pua) <- multi
 
     strings_pua <- lapply(strings, function(.x) stringr::str_replace_all(.x, pua))
 
@@ -86,7 +87,7 @@ phonetise <- function(strings, multichar = NULL, multi_regex = NULL, sanitise = 
       multiple = TRUE
     )
 
-    ipa_mc <- multichar
+    ipa_mc <- multi
     names(ipa_mc) <- pua
 
     lapply(strings_pua_token, function(.x) stringr::str_replace_all(.x, ipa_mc))
