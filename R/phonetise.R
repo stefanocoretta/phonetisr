@@ -13,7 +13,7 @@
 #' @param sanitise Whether to remove all non-IPA characters (`TRUE` by default).
 #' @param sanitize Alias of `sanitize`.
 #'
-#' @return A tibble.
+#' @return A list.
 #'
 #' @examples
 #' ipa <- c("pʰãkʰ", "tʰum̥", "ɛkʰɯ")
