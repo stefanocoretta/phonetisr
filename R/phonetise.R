@@ -112,6 +112,16 @@ phonetise <- function(strings, multi = NULL, regex = NULL, sanitise = TRUE,
   }
 }
 
+#' @rdname phonetise
+#' @examples
+#' ipa <- c("pʰãkʰ", "tʰum̥", "ɛkʰɯ")
+#' ph <- c("pʰ", "tʰ", "kʰ", "ã", "m̥")
+#'
+#' phonetise(ipa, multi = ph)
+#'
+#' @export
+phonetize <- phonetise
+
 get_no_ipa <- function(chars) {
   chars[!(chars %in% ipa_chars)]
 }

@@ -2,31 +2,44 @@
 % Please edit documentation in R/phonetise.R
 \name{phonetise}
 \alias{phonetise}
+\alias{phonetize}
 \title{Tokenise IPA strings}
 \usage{
 phonetise(
   strings,
-  multichar = NULL,
-  multi_regex = NULL,
+  multi = NULL,
+  regex = NULL,
   sanitise = TRUE,
-  sanitize = sanitise
+  sanitize = sanitise,
+  default_multi = FALSE
+)
+
+phonetize(
+  strings,
+  multi = NULL,
+  regex = NULL,
+  sanitise = TRUE,
+  sanitize = sanitise,
+  default_multi = FALSE
 )
 }
 \arguments{
 \item{strings}{A character vector with a list of words in IPA.}
 
-\item{multichar}{A character vector of one or more multi-character phones as
+\item{multi}{A character vector of one or more multi-character phones as
 strings.}
 
-\item{multi_regex}{A vector with regular expressions to match several
+\item{regex}{A string with a regular expression to match several
 multi-character phones.}
 
 \item{sanitise}{Whether to remove all non-IPA characters (\code{TRUE} by default).}
 
 \item{sanitize}{Alias of \code{sanitize}.}
+
+\item{default_multi}{If set to \code{TRUE}, parses all valid diacritics as part of the previous character (\code{FALSE} by default).}
 }
 \value{
-A tibble.
+A list.
 }
 \description{
 \code{phonetise()} tokenises strings of IPA symbols (like phonetic transcriptions
@@ -38,14 +51,19 @@ column.
 ipa <- c("pʰãkʰ", "tʰum̥", "ɛkʰɯ")
 ph <- c("pʰ", "tʰ", "kʰ", "ã", "m̥")
 
-phonetise(ipa, ph)
+phonetise(ipa, multi = ph)
 
 ph_2 <- ph[4:5]
 
 # Match any character followed by <ʰ> with ".ʰ".
-phonetise(ipa, ph_2, ".ʰ")
+phonetise(ipa, multi = ph_2, regex = ".ʰ")
 
 # Same result.
-phonetise(ipa, multi_regex = ".(\u0303|\u0325|\u02B0)")
+phonetise(ipa, regex = ".(\u0303|\u0325|\u02B0)")
+
+ipa <- c("pʰãkʰ", "tʰum̥", "ɛkʰɯ")
+ph <- c("pʰ", "tʰ", "kʰ", "ã", "m̥")
+
+phonetise(ipa, multi = ph)
 
 }
