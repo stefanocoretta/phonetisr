@@ -25,6 +25,21 @@ You can install the development version from
 remotes::install_github("stefanocoretta/phonetisr")
 ```
 
+## Usage
+
+``` r
+library(phonetisr)
+
+# IPA strings to be tokenised
+ipa <- c("pʰãkʰ", "tʰum̥", "ɛkʰɯ")
+
+# List of character sequences to be considered single phones
+ph <- c("pʰ", "tʰ", "kʰ", "ã", "m̥")
+
+# Tokenise strings
+phonetise(ipa, multi = ph)
+```
+
 ## Roadmap
 
 -   [x] Scan for illegal (non-IPA) characters.
