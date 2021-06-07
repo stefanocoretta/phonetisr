@@ -82,7 +82,7 @@ phonetise <- function(strings, multi = NULL, regex = NULL, sanitise = TRUE,
   # Main tokeniser procedure ########################################
   ####
 
-  if (!is.null(multi)) {
+  if (!is.null(multi) & multi_len > 0) {
     pua <- intToUtf8(
       Unicode::as.u_char_seq(Unicode::u_blocks("Private Use Area")[[1]])[[1]][1:multi_len],
       multiple = T
