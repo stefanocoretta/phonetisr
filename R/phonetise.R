@@ -41,7 +41,10 @@ phonetise <- function(strings, multi = NULL, regex = NULL, sanitise = TRUE,
     ) %>%
       unlist() %>%
       unique() %>%
-      get_no_ipa()
+      get_no_ipa() %>%
+      # Escape special characters
+      rex::rex()
+
     no_ipa_repl <- c(rep("", length.out = length(strings_no_ipa)))
     names(no_ipa_repl) <- strings_no_ipa
     if (length(no_ipa_repl) > 0) {
