@@ -10,9 +10,16 @@
 #'   strings.
 #' @param regex A string with a regular expression to match several
 #'   multi-character phones.
+#' @param split If set to `TRUE` (the default), the tokenised strings are split
+#'   into phones (i.e. the output is a vector with one element per phone). If
+#'   set to `FALSE`, the string is not split and the phones are separated with
+#'   the character defined in `sep`.
+#' @param sep A character to be used as the separator of the phones if `split = FALSE` (default is
+#'   ` `, space).
 #' @param sanitise Whether to remove all non-IPA characters (`TRUE` by default).
-#' @param default_multi If set to `TRUE`, parses all valid diacritics as part of the previous character (`FALSE` by default).
-#' @param sanitize Alias of `sanitize`.
+#' @param default_multi If set to `TRUE`, parses all valid diacritics as part of
+#'   the previous character (`FALSE` by default).
+#' @param sanitize Alias of `sanitise`.
 #'
 #' @return A list.
 #'
@@ -30,8 +37,10 @@
 #' # Same result.
 #' phonetise(ipa, regex = ".(\u0303|\u0325|\u02B0)")
 #'
+#' # Don't split strings and use "." as separator
+#' phonetise(ipa, multi = ph, split = FALSE, sep = ".")
 #' @export
-phonetise <- function(strings, multi = NULL, regex = NULL, sanitise = TRUE,
+phonetise <- function(strings, multi = NULL, regex = NULL, split = TRUE, sep = " ", sanitise = TRUE,
                       sanitize = sanitise, default_multi = FALSE) {
   if (sanitise | sanitize) {
     strings_no_ipa <- lapply(
@@ -88,7 +97,7 @@ phonetise <- function(strings, multi = NULL, regex = NULL, sanitise = TRUE,
   if (!is.null(multi) & multi_len > 0) {
     pua <- intToUtf8(
       Unicode::as.u_char_seq(Unicode::u_blocks("Private Use Area")[[1]])[[1]][1:multi_len],
-      multiple = T
+      multiple = TRUE
     )
 
     names(pua) <- multi
@@ -104,14 +113,21 @@ phonetise <- function(strings, multi = NULL, regex = NULL, sanitise = TRUE,
     ipa_mc <- multi
     names(ipa_mc) <- pua
 
-    lapply(strings_pua_token, function(.x) stringr::str_replace_all(.x, ipa_mc))
+    output <- lapply(strings_pua_token, function(.x) stringr::str_replace_all(.x, ipa_mc))
 
   } else {
-    lapply(
+    output <- lapply(
       Unicode::as.u_char_seq(stringi::stri_trans_nfd(strings), ""),
       intToUtf8,
       multiple = TRUE
     )
+  }
+
+  if (split) {
+    return(output)
+  } else {
+    output <- lapply(output, paste, collapse = sep)
+    return(output)
   }
 }
 

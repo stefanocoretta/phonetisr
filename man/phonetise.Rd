@@ -9,6 +9,8 @@ phonetise(
   strings,
   multi = NULL,
   regex = NULL,
+  split = TRUE,
+  sep = " ",
   sanitise = TRUE,
   sanitize = sanitise,
   default_multi = FALSE
@@ -18,6 +20,8 @@ phonetize(
   strings,
   multi = NULL,
   regex = NULL,
+  split = TRUE,
+  sep = " ",
   sanitise = TRUE,
   sanitize = sanitise,
   default_multi = FALSE
@@ -32,11 +36,20 @@ strings.}
 \item{regex}{A string with a regular expression to match several
 multi-character phones.}
 
+\item{split}{If set to \code{TRUE} (the default), the tokenised strings are split
+into phones (i.e. the output is a vector with one element per phone). If
+set to \code{FALSE}, the string is not split and the phones are separated with
+the character defined in \code{sep}.}
+
+\item{sep}{A character to be used as the separator of the phones if \code{split = FALSE} (default is
+\verb{}, space).}
+
 \item{sanitise}{Whether to remove all non-IPA characters (\code{TRUE} by default).}
 
-\item{sanitize}{Alias of \code{sanitize}.}
+\item{sanitize}{Alias of \code{sanitise}.}
 
-\item{default_multi}{If set to \code{TRUE}, parses all valid diacritics as part of the previous character (\code{FALSE} by default).}
+\item{default_multi}{If set to \code{TRUE}, parses all valid diacritics as part of
+the previous character (\code{FALSE} by default).}
 }
 \value{
 A list.
@@ -61,6 +74,8 @@ phonetise(ipa, multi = ph_2, regex = ".ʰ")
 # Same result.
 phonetise(ipa, regex = ".(\u0303|\u0325|\u02B0)")
 
+# Don't split strings and use "." as separator
+phonetise(ipa, multi = ph, split = FALSE, sep = ".")
 ipa <- c("pʰãkʰ", "tʰum̥", "ɛkʰɯ")
 ph <- c("pʰ", "tʰ", "kʰ", "ã", "m̥")
 
