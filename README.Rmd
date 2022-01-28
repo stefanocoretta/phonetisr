@@ -1,5 +1,7 @@
 ---
-output: github_document
+output:
+  github_document:
+    html_preview: false
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -49,6 +51,6 @@ phonetise(ipa, multi = ph)
 ## Roadmap
 
 - [x] Scan for illegal (non-IPA) characters.
-- [ ] Provide a list of default multi-character phones.
+- [x] Provide a list of default multi-character phones.
 - [ ] Functions for data import/export.
 - [ ] Ignore diacritics.

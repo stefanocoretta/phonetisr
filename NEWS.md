@@ -1,10 +1,13 @@
-# phonetisr 0.0.0.9001
+# phonetisr v0.0.1
 
 ## Changed
 
-* 
+* `phonetise()` gained two new arguments: `split` and `sep`.
 
-# phonetisr 0.0.0.9000
+
+
+
+# phonetisr v0.0.0.9000
 
 ## Added
 

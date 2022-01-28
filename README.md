@@ -43,6 +43,6 @@ phonetise(ipa, multi = ph)
 ## Roadmap
 
 -   [x] Scan for illegal (non-IPA) characters.
--   [ ] Provide a list of default multi-character phones.
+-   [x] Provide a list of default multi-character phones.
 -   [ ] Functions for data import/export.
 -   [ ] Ignore diacritics.
