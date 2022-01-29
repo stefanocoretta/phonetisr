@@ -1,2 +1,4 @@
+url: https://stefanocoretta.github.io/phonetisr/
 template:
-  package: preferably
+  bootstrap: 5
+
