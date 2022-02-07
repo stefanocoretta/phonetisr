@@ -24,12 +24,23 @@ ipa_symbols <- read_csv("./data-raw/ipa_symbols.csv") %>%
       spec_1 %in% c("open", "close", "open-mid", "close-mid", "lax", "raised", "lowered", "mid-central") & specs_n > 1 ~ "vowel",
       TRUE ~ "diacritic"
     ),
-    height = case_when(
+    height_ipa = case_when(
       type == "vowel" & specs_n == 2 ~ word(ipa_name, 1),
       type == "vowel" & specs_n == 3 ~ word(ipa_name, 1),
       type == "vowel" & specs_n == 4 ~ word(ipa_name, 1, 2)
     ),
+    height = case_when(
+      height_ipa == "open" ~ "low",
+      height_ipa == "raised open" ~ "low_raised",
+      height_ipa == "lowered" ~ "low_raised",
+      height_ipa == "close-mid" ~ "mid-high",
+      height_ipa == "mid-central" ~ "mid-central",
+      height_ipa == "open-mid" ~ "mid-low",
+      height_ipa == "close" ~ "high",
+      height_ipa == "lax close" ~ "high_lowered"
+    ),
     backness = case_when(
+      ipa_name %in% c("lowered schwa", "mid-central schwa") ~ "central",
       type == "vowel" & specs_n == 2 ~ word(ipa_name, 1),
       type == "vowel" & specs_n == 3 ~ word(ipa_name, 2),
       type == "vowel" & specs_n == 4 ~ word(ipa_name, 3)
@@ -47,9 +58,14 @@ ipa_symbols <- read_csv("./data-raw/ipa_symbols.csv") %>%
     manner = case_when(
       type == "consonant" & specs_n == 2 ~ word(ipa_name, 2),
       type == "consonant" & specs_n == 3 ~ word(ipa_name, 3),
-      TRUE ~ "fricative"
+      type == "consonant" & specs_n == 4 ~ word(ipa_name, 4)
     ),
-    lateral = str_detect(ipa_name, "lateral")
+    lateral = str_detect(ipa_name, "lateral"),
+    sonorant = case_when(
+      type == "vowel" ~ TRUE,
+      type == "consonant" & manner %in% c("approximant", "flap", "nasal", "tap", "trill") ~ TRUE,
+      type == "consonant" & manner %in% c("click", "fricative", "implosive", "plosive") ~ FALSE
+    )
   ) %>%
   dplyr::select(-specs_n, -spec_1)
 ```
