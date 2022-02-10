@@ -4,6 +4,9 @@
 
 * `affricates` argument in `phonetise()` to parse homorganic "stop + fricative" clusters as affricates.
 
+* `v_sequences` argument in `phonetise()` to collapse vowel sequences.
+
+
 
 
 # phonetisr v0.0.1

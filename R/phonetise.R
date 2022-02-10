@@ -20,6 +20,7 @@
 #' @param default_multi If set to `TRUE`, parses all valid diacritics as part of
 #'   the previous character (`FALSE` by default).
 #' @param affricates If set to `TRUE`, parses homorganic stop + fricative as affricates.
+#' @param v_sequences If set to `TRUE`, collapses vowel sequences (`FALSE` by default).
 #' @param sanitize Alias of `sanitise`.
 #'
 #' @return A list.
@@ -42,7 +43,8 @@
 #' phonetise(ipa, multi = ph, split = FALSE, sep = ".")
 #' @export
 phonetise <- function(strings, multi = NULL, regex = NULL, split = TRUE, sep = " ", sanitise = TRUE,
-                      sanitize = sanitise, default_multi = FALSE, affricates = FALSE) {
+                      sanitize = sanitise, default_multi = FALSE, affricates = FALSE,
+                      v_sequences = FALSE) {
   if (sanitise | sanitize) {
     strings_no_ipa <- lapply(
       Unicode::as.u_char_seq(stringi::stri_trans_nfd(strings), ""),
@@ -99,6 +101,16 @@ phonetise <- function(strings, multi = NULL, regex = NULL, split = TRUE, sep = "
 
     multi_len <- multi_len + length(multi_aff)
     multi <- c(multi, multi_aff)
+  }
+
+  # Collapse vowel sequences
+  if (v_sequences) {
+    multi_vowels <- stringr::str_extract_all(strings, vowels_regex) %>%
+      unlist() %>%
+      unique()
+
+    multi_len <- multi_len + length(multi_vowels)
+    multi <- c(multi, multi_vowels)
   }
 
   ####
@@ -197,7 +209,14 @@ ipa_diacritics_unicode <- c(
 diacritics_regex <- ".(\u0334|\u033C|\u032A|\u033B|\u033A|\u031F|\u0320|\u031D|\u031E|\u0318|\u0319|\u031C|\u0339|\u032C|\u0325|\u0330|\u0324|\u0329|\u032F|\u0303|\u0308|\u033D|\u0306|\u031A|\u02DE|\u02E1|\u207F|\u02B7|\u02B2|\u02E0|\u02E4|\u02B0|\u02BC|\u02D0|\u02D1|\u0361|\u02E5|\u02E6|\u02E7|\u02E8|\u02E9|\uA71B|\uA71C|\u2191|\u2193|\u2197|\u2198|\u203F|\u030A|\u030B|\u0301|\u0304|\u0300|\u030F|\u0302|\u030C|\u1DC4|\u1DC5|\u1DC6|\u1DC7|\u1DC8|\u1DC9|\u035C|\u0348|\u0349|\u0353|\u032E|\u0347|\u02C0|\u02B1|\u1D31)+"
 
 affricates <- c(
-  "pf", "bv", "ts", "dz", "tʃ", "dʒ", "tɕ", "tʑ", "cç", "ɟʝ", "kx", "ɡɣ", "qχ", "ɢʁ"
+  "pf", "bv", "ts", "dz", "t\u0283", "d\u0292", "t\u0255", "t\u0291", "c\u00E7",
+  "\u025F\u029D", "kx", "\u0261\u0263", "q\u03C7", "\u0262\u0281"
 )
 
-affricates_regex <- "pf|bv|ts|dz|tʃ|dʒ|tɕ|tʑ|cç|ɟʝ|kx|ɡɣ|qχ|ɢʁ"
+affricates_regex <- stringr::str_flatten(affricates, collapse = "|")
+
+data("ipa_symbols", envir = environment())
+
+vowels <- dplyr::filter(ipa_symbols, type == "vowel")
+
+vowels_regex <- paste0("(", stringr::str_flatten(vowels$IPA, collapse = "|"), "){2,}")

@@ -14,7 +14,8 @@ phonetise(
   sanitise = TRUE,
   sanitize = sanitise,
   default_multi = FALSE,
-  affricates = FALSE
+  affricates = FALSE,
+  v_sequences = FALSE
 )
 
 phonetize(
@@ -26,7 +27,8 @@ phonetize(
   sanitise = TRUE,
   sanitize = sanitise,
   default_multi = FALSE,
-  affricates = FALSE
+  affricates = FALSE,
+  v_sequences = FALSE
 )
 }
 \arguments{
@@ -54,6 +56,8 @@ the character defined in \code{sep}.}
 the previous character (\code{FALSE} by default).}
 
 \item{affricates}{If set to \code{TRUE}, parses homorganic stop + fricative as affricates.}
+
+\item{v_sequences}{If set to \code{TRUE}, collapses vowel sequences (\code{FALSE} by default).}
 }
 \value{
 A list.
