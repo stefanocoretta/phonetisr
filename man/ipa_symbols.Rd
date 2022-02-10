@@ -12,6 +12,7 @@ A data frame with 143 rows and 12 variables:
 \item{uni_name}{Unicode name.}
 \item{ipa_name}{IPA name.}
 \item{type}{Symbol type (\code{consonant}, \code{vowel}, \code{diacritic}).}
+\item{height_ipa}{Vowel openness.}
 \item{height}{Vowel height.}
 \item{backness}{Vowel backness.}
 \item{rounding}{Vowel rounding.}
@@ -19,6 +20,7 @@ A data frame with 143 rows and 12 variables:
 \item{place}{Consonant place of articulation.}
 \item{manner}{Consonant manner of articulation.}
 \item{lateral}{Is the consonant lateral?}
+\item{sonorant}{Is the phone sonorant?}
 }
 }
 \usage{

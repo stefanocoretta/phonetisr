@@ -7,6 +7,7 @@
 #'   \item{uni_name}{Unicode name.}
 #'   \item{ipa_name}{IPA name.}
 #'   \item{type}{Symbol type (`consonant`, `vowel`, `diacritic`).}
+#'   \item{height_ipa}{Vowel openness.}
 #'   \item{height}{Vowel height.}
 #'   \item{backness}{Vowel backness.}
 #'   \item{rounding}{Vowel rounding.}
@@ -14,6 +15,7 @@
 #'   \item{place}{Consonant place of articulation.}
 #'   \item{manner}{Consonant manner of articulation.}
 #'   \item{lateral}{Is the consonant lateral?}
+#'   \item{sonorant}{Is the phone sonorant?}
 #' }
 "ipa_symbols"
 
