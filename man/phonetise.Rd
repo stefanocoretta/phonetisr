@@ -13,7 +13,7 @@ phonetise(
   sep = " ",
   sanitise = TRUE,
   sanitize = sanitise,
-  default_multi = FALSE,
+  diacritics = FALSE,
   affricates = FALSE,
   v_sequences = FALSE
 )
@@ -26,7 +26,7 @@ phonetize(
   sep = " ",
   sanitise = TRUE,
   sanitize = sanitise,
-  default_multi = FALSE,
+  diacritics = FALSE,
   affricates = FALSE,
   v_sequences = FALSE
 )
@@ -52,7 +52,7 @@ the character defined in \code{sep}.}
 
 \item{sanitize}{Alias of \code{sanitise}.}
 
-\item{default_multi}{If set to \code{TRUE}, parses all valid diacritics as part of
+\item{diacritics}{If set to \code{TRUE}, parses all valid diacritics as part of
 the previous character (\code{FALSE} by default).}
 
 \item{affricates}{If set to \code{TRUE}, parses homorganic stop + fricative as affricates.}

@@ -17,7 +17,7 @@
 #' @param sep A character to be used as the separator of the phones if `split = FALSE` (default is
 #'   ` `, space).
 #' @param sanitise Whether to remove all non-IPA characters (`TRUE` by default).
-#' @param default_multi If set to `TRUE`, parses all valid diacritics as part of
+#' @param diacritics If set to `TRUE`, parses all valid diacritics as part of
 #'   the previous character (`FALSE` by default).
 #' @param affricates If set to `TRUE`, parses homorganic stop + fricative as affricates.
 #' @param v_sequences If set to `TRUE`, collapses vowel sequences (`FALSE` by default).
@@ -43,7 +43,7 @@
 #' phonetise(ipa, multi = ph, split = FALSE, sep = ".")
 #' @export
 phonetise <- function(strings, multi = NULL, regex = NULL, split = TRUE, sep = " ", sanitise = TRUE,
-                      sanitize = sanitise, default_multi = FALSE, affricates = FALSE,
+                      sanitize = sanitise, diacritics = FALSE, affricates = FALSE,
                       v_sequences = FALSE) {
   if (sanitise | sanitize) {
     strings_no_ipa <- lapply(
@@ -84,7 +84,7 @@ phonetise <- function(strings, multi = NULL, regex = NULL, split = TRUE, sep = "
   }
 
   # Use default diacritic list for multichar symbols
-  if (default_multi) {
+  if (diacritics) {
     multi_dia <- stringr::str_extract_all(strings, diacritics_regex) %>%
       unlist() %>%
       unique()

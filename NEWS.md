@@ -1,5 +1,9 @@
 # phonetisr v0.0.1.9000
 
+## Breaking changes
+
+* `default_multi` has been renamed to `diacritics`.
+
 ## Added
 
 * `affricates` argument in `phonetise()` to parse homorganic "stop + fricative" clusters as affricates.
