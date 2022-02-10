@@ -13,7 +13,8 @@ phonetise(
   sep = " ",
   sanitise = TRUE,
   sanitize = sanitise,
-  default_multi = FALSE
+  default_multi = FALSE,
+  affricates = FALSE
 )
 
 phonetize(
@@ -24,7 +25,8 @@ phonetize(
   sep = " ",
   sanitise = TRUE,
   sanitize = sanitise,
-  default_multi = FALSE
+  default_multi = FALSE,
+  affricates = FALSE
 )
 }
 \arguments{
@@ -50,6 +52,8 @@ the character defined in \code{sep}.}
 
 \item{default_multi}{If set to \code{TRUE}, parses all valid diacritics as part of
 the previous character (\code{FALSE} by default).}
+
+\item{affricates}{If set to \code{TRUE}, parses homorganic stop + fricative as affricates.}
 }
 \value{
 A list.
