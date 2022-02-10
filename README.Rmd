@@ -18,6 +18,8 @@ knitr::opts_chunk$set(
 # phonetisr: A Very Naive IPA Tokeniser
 
 <!-- badges: start -->
+`r badger::badge_github_version(pkg = "phonetisr", "blue")`
+`r badger::badge_devel(pkg = "phonetisr", color = "orange")`
 <!-- badges: end -->
 
 This package is a (very naive) tokeniser of phonetic transcriptions in the [International Phonetic Alphabet](https://www.internationalphoneticassociation.org/content/ipa-chart) (IPA).
@@ -30,7 +32,7 @@ You can install the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("stefanocoretta/phonetisr")
+remotes::install_github("stefanocoretta/phonetisr@v0.0.2")
 ```
 
 ## Usage

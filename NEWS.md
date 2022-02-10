@@ -1,4 +1,4 @@
-# phonetisr v0.0.1.9000
+# phonetisr v0.0.2
 
 ## Breaking changes
 
@@ -10,7 +10,7 @@
 
 * `v_sequences` argument in `phonetise()` to collapse vowel sequences.
 
-
+* `featurise()` to count phones and add features.
 
 
 # phonetisr v0.0.1

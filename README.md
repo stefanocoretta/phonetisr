@@ -4,6 +4,9 @@
 # phonetisr: A Very Naive IPA Tokeniser
 
 <!-- badges: start -->
+
+[![](https://img.shields.io/badge/devel%20version-0.0.2-blue.svg)](https://github.com/phonetisr)
+[![](https://img.shields.io/badge/devel%20version-0.0.2-orange.svg)](https://github.com/phonetisr)
 <!-- badges: end -->
 
 This package is a (very naive) tokeniser of phonetic transcriptions in
@@ -22,7 +25,7 @@ You can install the development version from
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("stefanocoretta/phonetisr")
+remotes::install_github("stefanocoretta/phonetisr@v0.0.2")
 ```
 
 ## Usage
