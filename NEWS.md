@@ -1,5 +1,9 @@
 # phonetisr v0.0.2.9000
 
+## Added
+
+* `all_multi` argument in `phonetise()` sets `diacritics`, `affricates` and `v_sequences` to `TRUE`.
+
 ## Changed
 
 * Improved base phone detection of `featurise()`.

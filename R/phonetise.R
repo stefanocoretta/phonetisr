@@ -21,6 +21,7 @@
 #'   the previous character (`FALSE` by default).
 #' @param affricates If set to `TRUE`, parses homorganic stop + fricative as affricates.
 #' @param v_sequences If set to `TRUE`, collapses vowel sequences (`FALSE` by default).
+#' @param all_multi If set to `TRUE`, `diacritics`, `affricates`, and `v_sequences` are all set to `TRUE`.
 #' @param sanitize Alias of `sanitise`.
 #'
 #' @return A list.
@@ -44,7 +45,7 @@
 #' @export
 phonetise <- function(strings, multi = NULL, regex = NULL, split = TRUE, sep = " ", sanitise = TRUE,
                       sanitize = sanitise, diacritics = FALSE, affricates = FALSE,
-                      v_sequences = FALSE) {
+                      v_sequences = FALSE, all_multi = FALSE) {
   if (sanitise | sanitize) {
     strings_no_ipa <- lapply(
       Unicode::as.u_char_seq(stringi::stri_trans_nfd(strings), ""),
@@ -62,6 +63,12 @@ phonetise <- function(strings, multi = NULL, regex = NULL, split = TRUE, sep = "
     if (length(no_ipa_repl) > 0) {
       strings <- stringr::str_replace_all(strings, no_ipa_repl)
     }
+  }
+
+  if (all_multi) {
+    diacritics <- TRUE
+    affricates <- TRUE
+    v_sequences <- TRUE
   }
 
   # Prepare multicharacter list if specified ########################
