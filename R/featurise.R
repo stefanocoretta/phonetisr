@@ -15,8 +15,15 @@ featurise <- function(phlist) {
     dplyr::count(phone, name = "count") %>%
     dplyr::arrange(count) %>%
     dplyr::mutate(
-        base = stringr::str_remove_all(
-            phone, paste0(ipa_diacritics, collapse = "|")
+        base = ifelse(
+            stringr::str_count(phone) > 1,
+            stringr::str_remove_all(phone, paste0(ipa_diacritics, collapse = "|")),
+            phone
+        ),
+        base = ifelse(
+            stringr::str_count(base) > 1,
+            stringr::str_sub(base, 1, 1),
+            base
         )
     ) %>%
     dplyr::left_join(y = ipa_symbols, by = c("base" = "IPA"))

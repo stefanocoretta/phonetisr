@@ -1,3 +1,12 @@
+# phonetisr v0.0.2.9000
+
+## Changed
+
+* Improved base phone detection of `featurise()`.
+
+
+
+
 # phonetisr v0.0.2
 
 ## Breaking changes
