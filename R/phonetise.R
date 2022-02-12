@@ -21,6 +21,7 @@
 #'   the previous character (`FALSE` by default).
 #' @param affricates If set to `TRUE`, parses homorganic stop + fricative as affricates.
 #' @param v_sequences If set to `TRUE`, collapses vowel sequences (`FALSE` by default).
+#' @param prenasalised If set to `TRUE`, parses prenasalised consonants as such (`FALSE` by default).
 #' @param all_multi If set to `TRUE`, `diacritics`, `affricates`, and `v_sequences` are all set to `TRUE`.
 #' @param sanitize Alias of `sanitise`.
 #'
@@ -45,7 +46,7 @@
 #' @export
 phonetise <- function(strings, multi = NULL, regex = NULL, split = TRUE, sep = " ", sanitise = TRUE,
                       sanitize = sanitise, diacritics = FALSE, affricates = FALSE,
-                      v_sequences = FALSE, all_multi = FALSE) {
+                      v_sequences = FALSE, prenasalised = FALSE, all_multi = FALSE) {
   if (sanitise | sanitize) {
     strings_no_ipa <- lapply(
       Unicode::as.u_char_seq(stringi::stri_trans_nfd(strings), ""),
@@ -118,6 +119,16 @@ phonetise <- function(strings, multi = NULL, regex = NULL, split = TRUE, sep = "
 
     multi_len <- multi_len + length(multi_vowels)
     multi <- c(multi, multi_vowels)
+  }
+
+  # Collapse vowel sequences
+  if (prenasalised) {
+    multi_prenasal <- stringr::str_extract_all(strings, prenasal_regex) %>%
+      unlist() %>%
+      unique()
+
+    multi_len <- multi_len + length(multi_prenasal)
+    multi <- c(multi, multi_prenasal)
   }
 
   ####
@@ -199,7 +210,38 @@ ipa_symbols_unicode <- c(
   '0349', '0353', '032E', '0347', '02C0', '02B1', '1D31'
 )
 
-ipa_chars <- intToUtf8(Unicode::as.u_char(ipa_symbols_unicode), multiple = TRUE)
+ipa_extensions <- c('1D00', '1D01', '1D02', '1D03', '1D04', '1D05', '1D06',
+  '1D07', '1D08', '1D09', '1D0A', '1D0B', '1D0C', '1D0D', '1D0E', '1D0F',
+  '1D10', '1D11', '1D12', '1D13', '1D14', '1D15', '1D16', '1D17', '1D18',
+  '1D19', '1D1A', '1D1B', '1D1C', '1D1D', '1D1E', '1D1F', '1D20', '1D21',
+  '1D22', '1D23', '1D24', '1D25', '1D26', '1D27', '1D28', '1D29', '1D2A',
+  '1D2B', '1D2C', '1D2D', '1D2E', '1D2F', '1D30', '1D31', '1D32', '1D33',
+  '1D34', '1D35', '1D36', '1D37', '1D38', '1D39', '1D3A', '1D3B', '1D3C',
+  '1D3D', '1D3E', '1D3F', '1D40', '1D41', '1D42', '1D43', '1D44', '1D45',
+  '1D46', '1D47', '1D48', '1D49', '1D4A', '1D4B', '1D4C', '1D4D', '1D4E',
+  '1D4F', '1D50', '1D51', '1D52', '1D53', '1D54', '1D55', '1D56', '1D57',
+  '1D58', '1D59', '1D5A', '1D5B', '1D5C', '1D5D', '1D5E', '1D5F', '1D60',
+  '1D61', '1D62', '1D63', '1D64', '1D65', '1D66', '1D67', '1D68', '1D69',
+  '1D6A', '1D6B', '1D6C', '1D6D', '1D6E', '1D6F', '1D70', '1D71', '1D72',
+  '1D73', '1D74', '1D75', '1D76', '1D77', '1D78', '1D79', '1D7A', '1D7B',
+  '1D7C', '1D7D', '1D7E', '1D7F'
+)
+
+ipa_supplements <- c('1D80', '1D81', '1D82', '1D83', '1D84', '1D85', '1D86',
+  '1D87', '1D88', '1D89', '1D8A', '1D8B', '1D8C', '1D8D', '1D8E', '1D8F',
+  '1D90', '1D91', '1D92', '1D93', '1D94', '1D95', '1D96', '1D97', '1D98',
+  '1D99', '1D9A', '1D9B', '1D9C', '1D9D', '1D9E', '1D9F', '1DA0', '1DA1',
+  '1DA2', '1DA3', '1DA4', '1DA5', '1DA6', '1DA7', '1DA8', '1DA9', '1DAA',
+  '1DAB', '1DAC', '1DAD', '1DAE', '1DAF', '1DB0', '1DB1', '1DB2', '1DB3',
+  '1DB4', '1DB5', '1DB6', '1DB7', '1DB8', '1DB9', '1DBA', '1DBB', '1DBC',
+  '1DBD', '1DBE', '1DBF'
+)
+
+ipa_chars <- intToUtf8(
+  Unicode::as.u_char(
+    c(ipa_symbols_unicode, ipa_extensions, ipa_supplements)
+  ), multiple = TRUE
+)
 
 ipa_diacritics_unicode <- c(
   '0334', '033C', '032A', '033B', '033A', '031F', '0320', '031D', '031E',
@@ -213,9 +255,13 @@ ipa_diacritics_unicode <- c(
   '1D31'
 )
 
+ipa_prenasal_unicode <- c('1D50', '1D51', '1DAC', '1DAE', '1DAF', '1DB0', '207F')
+
 ipa_diacritics <- intToUtf8(Unicode::as.u_char(ipa_diacritics_unicode), multiple = TRUE)
 
 diacritics_regex <- ".(\u0334|\u033C|\u032A|\u033B|\u033A|\u031F|\u0320|\u031D|\u031E|\u0318|\u0319|\u031C|\u0339|\u032C|\u0325|\u0330|\u0324|\u0329|\u032F|\u0303|\u0308|\u033D|\u0306|\u031A|\u02DE|\u02E1|\u207F|\u02B7|\u02B2|\u02E0|\u02E4|\u02B0|\u02BC|\u02D0|\u02D1|\u0361|\u02E5|\u02E6|\u02E7|\u02E8|\u02E9|\uA71B|\uA71C|\u2191|\u2193|\u2197|\u2198|\u203F|\u030A|\u030B|\u0301|\u0304|\u0300|\u030F|\u0302|\u030C|\u1DC4|\u1DC5|\u1DC6|\u1DC7|\u1DC8|\u1DC9|\u035C|\u0348|\u0349|\u0353|\u032E|\u0347|\u02C0|\u02B1|\u1D31)+"
+
+prenasal_regex <- "(\u1D50|\u1D51|\u1DAC|\u1DAE|\u1DAF|\u1DB0|\u207F)."
 
 affricates <- c(
   "pf", "bv", "ts", "dz", "t\u0283", "d\u0292", "t\u0255", "t\u0291", "c\u00E7",

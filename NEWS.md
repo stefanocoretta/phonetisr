@@ -4,6 +4,10 @@
 
 * `all_multi` argument in `phonetise()` sets `diacritics`, `affricates` and `v_sequences` to `TRUE`.
 
+* `prenasalised` argument in `phonetise()` parses prenasalised consonants as single phones.
+
+* Added the Unicode blocks Phonetic Extensions and Phonetic Extensions Supplement.
+
 ## Changed
 
 * Improved base phone detection of `featurise()`.
