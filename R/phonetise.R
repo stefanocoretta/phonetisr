@@ -55,14 +55,16 @@ phonetise <- function(strings, multi = NULL, regex = NULL, split = TRUE, sep = "
     ) %>%
       unlist() %>%
       unique() %>%
-      get_no_ipa() %>%
-      # Escape special characters
-      rex::rex()
+      get_no_ipa()
 
     no_ipa_repl <- c(rep("", length.out = length(strings_no_ipa)))
     names(no_ipa_repl) <- strings_no_ipa
     if (length(no_ipa_repl) > 0) {
-      strings <- stringr::str_replace_all(strings, no_ipa_repl)
+      strings <- stringr::str_replace_all(strings, stringr::fixed(no_ipa_repl))
+      cli::cli_alert_info(
+        cli::col_blue("The following non-IPA character were found and removed: {strings_no_ipa}")
+      )
+      cli::cli_text("")
     }
   }
 

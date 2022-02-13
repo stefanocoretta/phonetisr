@@ -8,6 +8,8 @@
 
 * Added the Unicode blocks Phonetic Extensions and Phonetic Extensions Supplement.
 
+* `sanitise = TRUE` prints a message with info on removed non-IPA characters if any are found.
+
 ## Changed
 
 * Improved base phone detection of `featurise()`.
