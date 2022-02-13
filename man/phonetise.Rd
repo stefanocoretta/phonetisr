@@ -65,7 +65,7 @@ the previous character (\code{FALSE} by default).}
 
 \item{prenasalised}{If set to \code{TRUE}, parses prenasalised consonants as such (\code{FALSE} by default).}
 
-\item{all_multi}{If set to \code{TRUE}, \code{diacritics}, \code{affricates}, and \code{v_sequences} are all set to \code{TRUE}.}
+\item{all_multi}{If set to \code{TRUE}, \code{diacritics}, \code{affricates}, \code{v_sequences} and \code{prenasalised} are all set to \code{TRUE}.}
 }
 \value{
 A list.

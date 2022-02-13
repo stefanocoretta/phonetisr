@@ -183,6 +183,19 @@ phonetise <- function(strings, multi = NULL, regex = NULL, split = TRUE, sep = "
 #' @export
 phonetize <- phonetise
 
+
+#' Get non-IPA characters.
+#'
+#' Given a vector of characters, it returns those which are not part of the IPA.
+#'
+#' @param chars A vector of characters.
+#'
+#' @return A vector.
+#'
+#' @examples
+#' get_no_ipa(c("a", "ʃ", ">"))
+#'
+#' @export
 get_no_ipa <- function(chars) {
   chars[!(chars %in% ipa_chars)]
 }

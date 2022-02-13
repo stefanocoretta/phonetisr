@@ -2,6 +2,7 @@
 
 export("%>%")
 export(featurise)
+export(get_no_ipa)
 export(phonetise)
 export(phonetize)
 importFrom(magrittr,"%>%")
