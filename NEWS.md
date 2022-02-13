@@ -2,7 +2,7 @@
 
 ## Added
 
-* `all_multi` argument in `phonetise()` sets `diacritics`, `affricates` and `v_sequences` to `TRUE`.
+* `all_multi` argument in `phonetise()` sets `diacritics`, `affricates`, `v_sequences` and `prenasalised` to `TRUE`.
 
 * `prenasalised` argument in `phonetise()` parses prenasalised consonants as single phones.
 

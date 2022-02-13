@@ -22,7 +22,7 @@
 #' @param affricates If set to `TRUE`, parses homorganic stop + fricative as affricates.
 #' @param v_sequences If set to `TRUE`, collapses vowel sequences (`FALSE` by default).
 #' @param prenasalised If set to `TRUE`, parses prenasalised consonants as such (`FALSE` by default).
-#' @param all_multi If set to `TRUE`, `diacritics`, `affricates`, and `v_sequences` are all set to `TRUE`.
+#' @param all_multi If set to `TRUE`, `diacritics`, `affricates`, `v_sequences` and `prenasalised` are all set to `TRUE`.
 #' @param sanitize Alias of `sanitise`.
 #'
 #' @return A list.
@@ -70,6 +70,7 @@ phonetise <- function(strings, multi = NULL, regex = NULL, split = TRUE, sep = "
     diacritics <- TRUE
     affricates <- TRUE
     v_sequences <- TRUE
+    prenasalised <- TRUE
   }
 
   # Prepare multicharacter list if specified ########################
