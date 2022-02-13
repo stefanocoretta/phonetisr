@@ -1,3 +1,7 @@
+# IPA symbols Unicode codes ----
+
+## Official IPA ----
+
 ipa_symbols_unicode <- c(
   "0061", "00E6", "0250", "0251", "0252", "0062", "0299", "0253", "0063",
   "00E7", "0255", "0064", "00F0", "0256", "0257", "0065", "0259", "025B",
@@ -22,6 +26,8 @@ ipa_symbols_unicode <- c(
   "0349", "0353", "032E", "0347", "02C0", "02B1", "1D31"
 )
 
+## IPA extensions ----
+
 ipa_extensions <- c("1D00", "1D01", "1D02", "1D03", "1D04", "1D05", "1D06",
   "1D07", "1D08", "1D09", "1D0A", "1D0B", "1D0C", "1D0D", "1D0E", "1D0F",
   "1D10", "1D11", "1D12", "1D13", "1D14", "1D15", "1D16", "1D17", "1D18",
@@ -39,6 +45,8 @@ ipa_extensions <- c("1D00", "1D01", "1D02", "1D03", "1D04", "1D05", "1D06",
   "1D7C", "1D7D", "1D7E", "1D7F"
 )
 
+## IPA extensions supplement ----
+
 ipa_supplements <- c("1D80", "1D81", "1D82", "1D83", "1D84", "1D85", "1D86",
   "1D87", "1D88", "1D89", "1D8A", "1D8B", "1D8C", "1D8D", "1D8E", "1D8F",
   "1D90", "1D91", "1D92", "1D93", "1D94", "1D95", "1D96", "1D97", "1D98",
@@ -49,11 +57,17 @@ ipa_supplements <- c("1D80", "1D81", "1D82", "1D83", "1D84", "1D85", "1D86",
   "1DBD", "1DBE", "1DBF"
 )
 
+# All IPA characters ----
+
 ipa_chars <- intToUtf8(
   Unicode::as.u_char(
     c(ipa_symbols_unicode, ipa_extensions, ipa_supplements)
   ), multiple = TRUE
 )
+
+# IPA diacritics ----
+
+## Official diacritics ----
 
 ipa_diacritics_unicode <- c(
   "0334", "033C", "032A", "033B", "033A", "031F", "0320", "031D", "031E",
@@ -67,13 +81,28 @@ ipa_diacritics_unicode <- c(
   "1D31"
 )
 
+ipa_diacritics <- intToUtf8(
+  Unicode::as.u_char(ipa_diacritics_unicode),
+  multiple = TRUE
+)
+
+diacritics_regex <- paste0(
+  ".(",
+  stringr::str_flatten(paste0("\\u", ipa_diacritics_unicode), collapse = "|"),
+  ")+"
+)
+
+## Prenasalised diacritics ----
+
 ipa_prenasal_unicode <- c("1D50", "1D51", "1DAC", "1DAE", "1DAF", "1DB0", "207F")
 
-ipa_diacritics <- intToUtf8(Unicode::as.u_char(ipa_diacritics_unicode), multiple = TRUE)
+prenasal_regex <- paste0(
+  "(",
+  stringr::str_flatten(paste0("\\u", ipa_prenasal_unicode), collapse = "|"),
+  ")."
+)
 
-diacritics_regex <- ".(\u0334|\u033C|\u032A|\u033B|\u033A|\u031F|\u0320|\u031D|\u031E|\u0318|\u0319|\u031C|\u0339|\u032C|\u0325|\u0330|\u0324|\u0329|\u032F|\u0303|\u0308|\u033D|\u0306|\u031A|\u02DE|\u02E1|\u207F|\u02B7|\u02B2|\u02E0|\u02E4|\u02B0|\u02BC|\u02D0|\u02D1|\u0361|\u02E5|\u02E6|\u02E7|\u02E8|\u02E9|\uA71B|\uA71C|\u2191|\u2193|\u2197|\u2198|\u203F|\u030A|\u030B|\u0301|\u0304|\u0300|\u030F|\u0302|\u030C|\u1DC4|\u1DC5|\u1DC6|\u1DC7|\u1DC8|\u1DC9|\u035C|\u0348|\u0349|\u0353|\u032E|\u0347|\u02C0|\u02B1|\u1D31)+"
-
-prenasal_regex <- "(\u1D50|\u1D51|\u1DAC|\u1DAE|\u1DAF|\u1DB0|\u207F)."
+# Affricates ----
 
 affricates <- c(
   "pf", "bv", "ts", "dz", "t\u0283", "d\u0292", "t\u0255", "t\u0291", "c\u00E7",
@@ -82,8 +111,14 @@ affricates <- c(
 
 affricates_regex <- stringr::str_flatten(affricates, collapse = "|")
 
+# Vowel sequences ----
+
 data("ipa_symbols", envir = environment())
 
 vowels <- dplyr::filter(ipa_symbols, type == "vowel")
 
-vowels_regex <- paste0("(", stringr::str_flatten(vowels$IPA, collapse = "|"), "){2,}")
+vowels_regex <- paste0(
+  "(",
+  stringr::str_flatten(vowels$IPA, collapse = "|"),
+  "){2,}"
+)
