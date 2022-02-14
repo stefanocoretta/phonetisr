@@ -14,15 +14,19 @@
 #'   into phones (i.e. the output is a vector with one element per phone). If
 #'   set to `FALSE`, the string is not split and the phones are separated with
 #'   the character defined in `sep`.
-#' @param sep A character to be used as the separator of the phones if `split = FALSE` (default is
-#'   ` `, space).
+#' @param sep A character to be used as the separator of the phones if `split =
+#'   FALSE` (default is ` `, space).
 #' @param sanitise Whether to remove all non-IPA characters (`TRUE` by default).
 #' @param diacritics If set to `TRUE`, parses all valid diacritics as part of
 #'   the previous character (`FALSE` by default).
-#' @param affricates If set to `TRUE`, parses homorganic stop + fricative as affricates.
-#' @param v_sequences If set to `TRUE`, collapses vowel sequences (`FALSE` by default).
-#' @param prenasalised If set to `TRUE`, parses prenasalised consonants as such (`FALSE` by default).
-#' @param all_multi If set to `TRUE`, `diacritics`, `affricates`, `v_sequences` and `prenasalised` are all set to `TRUE`.
+#' @param affricates If set to `TRUE`, parses homorganic stop + fricative as
+#'   affricates.
+#' @param v_sequences If set to `TRUE`, collapses vowel sequences (`FALSE` by
+#'   default).
+#' @param prenasalised If set to `TRUE`, parses prenasalised consonants as such
+#'   (`FALSE` by default).
+#' @param all_multi If set to `TRUE`, `diacritics`, `affricates`, `v_sequences`
+#'   and `prenasalised` are all set to `TRUE`.
 #' @param sanitize Alias of `sanitise`.
 #'
 #' @return A list.
@@ -44,9 +48,11 @@
 #' # Don't split strings and use "." as separator
 #' phonetise(ipa, multi = ph, split = FALSE, sep = ".")
 #' @export
-phonetise <- function(strings, multi = NULL, regex = NULL, split = TRUE, sep = " ", sanitise = TRUE,
-                      sanitize = sanitise, diacritics = FALSE, affricates = FALSE,
-                      v_sequences = FALSE, prenasalised = FALSE, all_multi = FALSE) {
+phonetise <- function(strings, multi = NULL, regex = NULL, split = TRUE,
+                      sep = " ", sanitise = TRUE,
+                      sanitize = sanitise, diacritics = FALSE,
+                      affricates = FALSE, v_sequences = FALSE,
+                      prenasalised = FALSE, all_multi = FALSE) {
   if (sanitise | sanitize) {
     strings_no_ipa <- lapply(
       Unicode::as.u_char_seq(stringi::stri_trans_nfd(strings), ""),
@@ -63,8 +69,7 @@ phonetise <- function(strings, multi = NULL, regex = NULL, split = TRUE, sep = "
       strings <- stringr::str_replace_all(strings, stringr::fixed(no_ipa_repl))
       cli::cli_alert_info(
         cli::col_blue(
-          "The following non-IPA characters were found and removed:
-          {strings_no_ipa}"
+    "The following non-IPA characters were found and removed: {strings_no_ipa}"
         )
       )
       cli::cli_text("")
@@ -143,13 +148,17 @@ phonetise <- function(strings, multi = NULL, regex = NULL, split = TRUE, sep = "
 
   if (!is.null(multi) & multi_len > 0) {
     pua <- intToUtf8(
-      Unicode::as.u_char_seq(Unicode::u_blocks("Private Use Area")[[1]])[[1]][1:multi_len],
+      Unicode::as.u_char_seq(
+        Unicode::u_blocks("Private Use Area")[[1]]
+      )[[1]][1:multi_len],
       multiple = TRUE
     )
 
     names(pua) <- multi
 
-    strings_pua <- lapply(strings, function(.x) stringr::str_replace_all(.x, pua))
+    strings_pua <- lapply(
+      strings, function(.x) stringr::str_replace_all(.x, pua)
+    )
 
     strings_pua_token <- lapply(
       Unicode::as.u_char_seq(stringi::stri_trans_nfd(strings_pua), ""),
@@ -160,7 +169,9 @@ phonetise <- function(strings, multi = NULL, regex = NULL, split = TRUE, sep = "
     ipa_mc <- multi
     names(ipa_mc) <- pua
 
-    output <- lapply(strings_pua_token, function(.x) stringr::str_replace_all(.x, ipa_mc))
+    output <- lapply(
+      strings_pua_token, function(.x) stringr::str_replace_all(.x, ipa_mc)
+    )
 
   } else {
     output <- lapply(
