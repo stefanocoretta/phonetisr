@@ -17,6 +17,7 @@ RoxygenNote: 7.1.2
 Imports:
     cli,
     dplyr,
+    lifecycle,
     magrittr,
     rex,
     stringi,
