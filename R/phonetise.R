@@ -62,7 +62,10 @@ phonetise <- function(strings, multi = NULL, regex = NULL, split = TRUE, sep = "
     if (length(no_ipa_repl) > 0) {
       strings <- stringr::str_replace_all(strings, stringr::fixed(no_ipa_repl))
       cli::cli_alert_info(
-        cli::col_blue("The following non-IPA character were found and removed: {strings_no_ipa}")
+        cli::col_blue(
+          "The following non-IPA characters were found and removed:
+          {strings_no_ipa}"
+        )
       )
       cli::cli_text("")
     }
