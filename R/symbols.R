@@ -88,15 +88,18 @@ ipa_diacritics <- intToUtf8(
   multiple = TRUE
 )
 
-diacritics <- dplyr::filter(
-  ipa_symbols,
-  type == "diacritic",
-  !(phon_type %in% c("break", "stress", "tone"))
-  )
+diacritics <- c(
+  "0334", "033C", "032A", "033B", "033A", "031F", "0320", "031D", "031E",
+  "0318", "0319", "031C", "0339", "032C", "0325", "0330", "0324", "0329",
+  "032F", "0303", "0308", "033D", "0306", "031A", "02DE", "02E1", "207F",
+  "02B7", "02B2", "02E0", "02E4", "02B0", "02BC", "02D0", "02D1", "0361",
+  "030A", "035C", "0348", "0349", "0353", "032E", "0347", "02C0", "02B1",
+  "1D31"
+)
 
 diacritics_regex <- paste0(
   ".(",
-  stringr::str_flatten(paste0("\\u", diacritics$IPA), collapse = "|"),
+  stringr::str_flatten(paste0("\\u", diacritics), collapse = "|"),
   ")+"
 )
 
