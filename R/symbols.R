@@ -1,5 +1,7 @@
 # IPA symbols Unicode codes ----
 
+data("ipa_symbols", envir = environment())
+
 ## Official IPA ----
 
 ipa_symbols_unicode <- c(
@@ -86,11 +88,24 @@ ipa_diacritics <- intToUtf8(
   multiple = TRUE
 )
 
+diacritics <- dplyr::filter(
+  ipa_symbols,
+  type == "diacritic",
+  !(phon_type %in% c("break", "stress", "tone"))
+  )
+
 diacritics_regex <- paste0(
   ".(",
-  stringr::str_flatten(paste0("\\u", ipa_diacritics_unicode), collapse = "|"),
+  stringr::str_flatten(paste0("\\u", diacritics$IPA), collapse = "|"),
   ")+"
 )
+
+## Tone diacritics and letters ----
+
+tones <- c("\u02E5", "\u02E6", "\u02E7", "\u02E8", "\u02E9", "\uA71B", "\uA71C",
+"\u2191", "\u2193", "\u2197", "\u2198", "\u203F", "\u030A", "\u030B", "\u0301", "\u0304",
+"\u0300", "\u030F", "\u0302", "\u030C", "\u1DC4", "\u1DC5", "\u1DC6", "\u1DC7", "\u1DC8",
+"\u1DC9")
 
 ## Prenasalised diacritics ----
 
@@ -112,8 +127,6 @@ affricates <- c(
 affricates_regex <- stringr::str_flatten(affricates, collapse = "|")
 
 # Vowel sequences ----
-
-data("ipa_symbols", envir = environment())
 
 vowels <- dplyr::filter(ipa_symbols, type == "vowel")
 
