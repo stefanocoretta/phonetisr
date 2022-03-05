@@ -11,7 +11,8 @@ A data frame with 143 rows and 12 variables:
 \item{unicode}{Unicode code.}
 \item{uni_name}{Unicode name.}
 \item{ipa_name}{IPA name.}
-\item{type}{Symbol type (\code{consonant}, \code{vowel}, \code{diacritic}).}
+\item{phon_type}{The phonetic type of the symbol.}
+\item{type}{General character type (\code{consonant}, \code{vowel}, \code{diacritic}).}
 \item{height_ipa}{Vowel openness.}
 \item{height}{Vowel height.}
 \item{backness}{Vowel backness.}

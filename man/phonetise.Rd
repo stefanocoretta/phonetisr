@@ -49,8 +49,7 @@ into phones (i.e. the output is a vector with one element per phone). If
 set to \code{FALSE}, the string is not split and the phones are separated with
 the character defined in \code{sep}.}
 
-\item{sep}{A character to be used as the separator of the phones if \code{split = FALSE} (default is
-\verb{}, space).}
+\item{sep}{A character to be used as the separator of the phones if \code{split = FALSE} (default is \verb{}, space).}
 
 \item{sanitise}{Whether to remove all non-IPA characters (\code{TRUE} by default).}
 
@@ -59,13 +58,17 @@ the character defined in \code{sep}.}
 \item{diacritics}{If set to \code{TRUE}, parses all valid diacritics as part of
 the previous character (\code{FALSE} by default).}
 
-\item{affricates}{If set to \code{TRUE}, parses homorganic stop + fricative as affricates.}
+\item{affricates}{If set to \code{TRUE}, parses homorganic stop + fricative as
+affricates.}
 
-\item{v_sequences}{If set to \code{TRUE}, collapses vowel sequences (\code{FALSE} by default).}
+\item{v_sequences}{If set to \code{TRUE}, collapses vowel sequences (\code{FALSE} by
+default).}
 
-\item{prenasalised}{If set to \code{TRUE}, parses prenasalised consonants as such (\code{FALSE} by default).}
+\item{prenasalised}{If set to \code{TRUE}, parses prenasalised consonants as such
+(\code{FALSE} by default).}
 
-\item{all_multi}{If set to \code{TRUE}, \code{diacritics}, \code{affricates}, \code{v_sequences} and \code{prenasalised} are all set to \code{TRUE}.}
+\item{all_multi}{If set to \code{TRUE}, \code{diacritics}, \code{affricates}, \code{v_sequences}
+and \code{prenasalised} are all set to \code{TRUE}.}
 }
 \value{
 A list.
