@@ -17,6 +17,8 @@
 #' @param sep A character to be used as the separator of the phones if `split =
 #'   FALSE` (default is ` `, space).
 #' @param sanitise Whether to remove all non-IPA characters (`TRUE` by default).
+#' @param ignore_stress If `TRUE` (the default), stress marks are not parsed.
+#' @param ignore_tone If `TRUE` (the default), tone marks and letters are not parsed.
 #' @param diacritics If set to `TRUE`, parses all valid diacritics as part of
 #'   the previous character (`FALSE` by default).
 #' @param affricates If set to `TRUE`, parses homorganic stop + fricative as
@@ -50,9 +52,10 @@
 #' @export
 phonetise <- function(strings, multi = NULL, regex = NULL, split = TRUE,
                       sep = " ", sanitise = TRUE,
-                      sanitize = sanitise, diacritics = FALSE,
-                      affricates = FALSE, v_sequences = FALSE,
-                      prenasalised = FALSE, all_multi = FALSE) {
+                      ignore_stress = TRUE, ignore_tone = TRUE,
+                      diacritics = FALSE, affricates = FALSE,
+                      v_sequences = FALSE, prenasalised = FALSE,
+                      all_multi = FALSE, sanitize = sanitise) {
   if (sanitise | sanitize) {
     strings_no_ipa <- lapply(
       Unicode::as.u_char_seq(stringi::stri_trans_nfd(strings), ""),
@@ -74,6 +77,24 @@ phonetise <- function(strings, multi = NULL, regex = NULL, split = TRUE,
       )
       cli::cli_text("")
     }
+  }
+
+  if (ignore_stress) {
+    strings <- stringr::str_remove_all(strings, "\u02C8|\u02CC")
+  }
+
+  if (ignore_tone) {
+    strings <- lapply(
+      Unicode::as.u_char_seq(stringi::stri_trans_nfd(strings), ""),
+      intToUtf8,
+      multiple = TRUE
+    ) %>%
+      lapply(
+        function(x) {
+          x_no_tone <- stringr::str_flatten(x[!(x %in% tones)])
+          return(x_no_tone)
+        }
+      )
   }
 
   if (all_multi) {

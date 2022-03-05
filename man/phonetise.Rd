@@ -12,12 +12,14 @@ phonetise(
   split = TRUE,
   sep = " ",
   sanitise = TRUE,
-  sanitize = sanitise,
+  ignore_stress = TRUE,
+  ignore_tone = TRUE,
   diacritics = FALSE,
   affricates = FALSE,
   v_sequences = FALSE,
   prenasalised = FALSE,
-  all_multi = FALSE
+  all_multi = FALSE,
+  sanitize = sanitise
 )
 
 phonetize(
@@ -27,12 +29,14 @@ phonetize(
   split = TRUE,
   sep = " ",
   sanitise = TRUE,
-  sanitize = sanitise,
+  ignore_stress = TRUE,
+  ignore_tone = TRUE,
   diacritics = FALSE,
   affricates = FALSE,
   v_sequences = FALSE,
   prenasalised = FALSE,
-  all_multi = FALSE
+  all_multi = FALSE,
+  sanitize = sanitise
 )
 }
 \arguments{
@@ -53,7 +57,9 @@ the character defined in \code{sep}.}
 
 \item{sanitise}{Whether to remove all non-IPA characters (\code{TRUE} by default).}
 
-\item{sanitize}{Alias of \code{sanitise}.}
+\item{ignore_stress}{If \code{TRUE} (the default), stress marks are not parsed.}
+
+\item{ignore_tone}{If \code{TRUE} (the default), tone marks and letters are not parsed.}
 
 \item{diacritics}{If set to \code{TRUE}, parses all valid diacritics as part of
 the previous character (\code{FALSE} by default).}
@@ -69,6 +75,8 @@ default).}
 
 \item{all_multi}{If set to \code{TRUE}, \code{diacritics}, \code{affricates}, \code{v_sequences}
 and \code{prenasalised} are all set to \code{TRUE}.}
+
+\item{sanitize}{Alias of \code{sanitise}.}
 }
 \value{
 A list.

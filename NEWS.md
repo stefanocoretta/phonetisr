@@ -2,6 +2,8 @@
 
 ## Added
 
+* `ignore_stress` and `ignore_tone` in `phonetise()` ignore and remove stress and tone diacritics and letters. They are `TRUE` by default.
+
 * `all_multi` argument in `phonetise()` sets `diacritics`, `affricates`, `v_sequences` and `prenasalised` to `TRUE`.
 
 * `prenasalised` argument in `phonetise()` parses prenasalised consonants as single phones.
