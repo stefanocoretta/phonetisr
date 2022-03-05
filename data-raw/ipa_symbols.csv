@@ -1,188 +1,188 @@
-IPA,unicode,uni_name,ipa_name
-a,0061,latin small letter a,open front unrounded
-æ,00E6,latin small letter ae,raised open front unrounded
-ɐ,0250,latin small letter turned a,lowered schwa
-ɑ,0251,latin small letter alpha,open back unrounded
-ɒ,0252,latin small letter turned alpha,open back rounded
-b,0062,latin small letter b,voiced bilabial plosive
-ʙ,0299,latin letter small capital b,voiced bilabial trill
-ɓ,0253,latin small letter b with hook,voiced bilabial implosive
-c,0063,latin small letter c,voiceless palatal plosive
-ç,00E7,latin small letter c with cedilla,voiceless palatal fricative
-ɕ,0255,latin small letter c with curl,voiceless alveolo-palatal fricative
-d,0064,latin small letter d,voiced alveolar plosive
-ð,00F0,latin small letter eth,voiced dental fricative
-ɖ,0256,latin small letter d with tail,voiced retroflex plosive
-ɗ,0257,latin small letter d with hook,voiced dental/alveolar implosive
-e,0065,latin small letter e,close-mid front unrounded
-ə,0259,latin small letter schwa,mid-central schwa
-ɛ,025B,latin small letter open e,open-mid front unrounded
-ɘ,0258,latin small letter reversed e,close-mid central unrounded
-ɜ,025C,latin small letter reversed open e,open-mid central unrounded
-ɞ,025E,latin small letter closed reversed open e,open-mid central rounded
-f,0066,latin small letter f,voiceless labiodental fricative
-ɡ,0261,latin small letter script g,voiced velar plosive
-ɢ,0262,latin letter small capital g,voiced uvular plosive
-ɠ,0260,latin small letter g with hook,voiced velar implosive
-ʛ,029B,latin letter small capital g with hook,voiced uvular implosive
-ɤ,0264,latin small letter rams horn,close-mid back unrounded
-ɣ,0263,latin small letter gamma,voiced velar fricative
-h,0068,latin small letter h,voiceless glottal fricative
-ħ,0127,latin small letter h with stroke,voiceless pharyngeal fricative
-ʜ,029C,latin letter small capital h,voiceless epiglottal fricative
-ɦ,0266,latin small letter h with hook,voiced glottal fricative
-ɧ,0267,latin small letter heng with hook,simultaneous voiceless postalveolar-velar fricative
-ɥ,0265,latin small letter turned h,voiced labial-palatal approximant
-i,0069,latin small letter i,close front unrounded
-ɪ,026A,latin letter small capital i,lax close front unrounded
-ɨ,0268,latin small letter i with stroke,close central unrounded
-j,006A,latin small letter j,voiced palatal approximant
-ʝ,029D,latin small letter j with crossed tail,voiced palatal fricative
-ɟ,025F,latin small letter dotless j with stroke,voiced palatal plosive
-ʄ,0284,latin small letter dotless j with stroke and hook,voiced palatal implosive
-k,006B,latin small letter k,voiceless velar plosive
-l,006C,latin small letter l,voiced alveolar lateral approximant
-ʟ,029F,latin letter small capital l,voiced velar lateral approximant
-ɬ,026C,latin small letter l with belt,voiceless alveolar lateral fricative
-ɭ,026D,latin small letter l with retroflex hook,voiced retroflex lateral approximant
-ɮ,026E,latin small letter lezh,voiced alveolar lateral fricative
-ʎ,028E,latin small letter turned y,voiced palatal lateral approximant
-m,006D,latin small letter m,voiced bilabial nasal
-ɱ,0271,latin small letter m with hook,voiced labiodental nasal
-n,006E,latin small letter n,voiced alveolar nasal
-ɴ,0274,latin letter small capital n,voiced uvular nasal
-ɲ,0272,latin small letter n with left hook,voiced palatal nasal
-ɳ,0273,latin small letter n with retroflex hook,voiced retroflex nasal
-ŋ,014B,latin small letter eng,voiced velar nasal
-o,006F,latin small letter o,close-mid back rounded
-ø,00F8,latin small letter o with stroke,close-mid front rounded
-œ,0153,latin small ligature oe,open-mid front rounded
-ɶ,0276,latin letter small capital oe,open front rounded
-ɔ,0254,latin small letter open o,open-mid back rounded
-ɵ,0275,latin small letter barred o,close-mid central rounded
-p,0070,latin small letter p,voiceless bilabial plosive
-ɸ,0278,latin small letter phi,voiceless bilabial fricative
-q,0071,latin small letter q,voiceless uvular plosive
-r,0072,latin small letter r,voiced alveolar trill
-ʀ,0280,latin letter small capital r,voiced uvular trill
-ɹ,0279,latin small letter turned r,voiced alveolar approximant
-ɺ,027A,latin small letter turned r with long leg,voiced alveolar lateral flap
-ɻ,027B,latin small letter turned r with hook,voiced retroflex approximant
-ɽ,027D,latin small letter r with tail,voiced retroflex tap
-ɾ,027E,latin small letter r with fishhook,voiced alveolar tap
-ʁ,0281,latin letter small capital inverted r,voiced uvular fricative
-s,0073,latin small letter s,voiceless alveolar fricative
-ʂ,0282,latin small letter s with hook,voiceless retroflex fricative
-ʃ,0283,latin small letter esh,voiceless postalveolar fricative
-t,0074,latin small letter t,voiceless alveolar plosive
-ʈ,0288,latin small letter t with retroflex hook,voiceless retroflex plosive
-u,0075,latin small letter u,close back rounded
-ʉ,0289,latin small letter u bar,close central rounded
-ɯ,026F,latin small letter turned m,close back unrounded
-ɰ,0270,latin small letter turned m with long leg,voiced velar approximant
-ʊ,028A,latin small letter upsilon,lax close back rounded
-v,0076,latin small letter v,voiced labiodental fricative
-ʋ,028B,latin small letter v with hook,voiced labiodental approximant
-ⱱ,2C71,latin small letter v with right hook,voiced labiodental tap
-ʌ,028C,latin small letter turned v,open-mid back unrounded
-w,0077,latin small letter w,voiced labial-velar approximant
-ʍ,028D,latin small letter turned w,voiceless labial-velar fricative
-x,0078,latin small letter x,voiceless velar fricative
-y,0079,latin small letter y,close front rounded
-ʏ,028F,latin letter small capital y,lax close front rounded
-z,007A,latin small letter z,voiced alveolar fricative
-ʐ,0290,latin small letter z with retroflex hook,voiced retroflex fricative
-ʑ,0291,latin small letter z with curl,voiced alveolo-palatal fricative
-ʒ,0292,latin small letter ezh,voiced postalveolar fricative
-ʔ,0294,latin letter glottal stop,voiceless glottal plosive
-ʕ,0295,latin letter pharyngeal voiced fricative,voiced pharyngeal fricative
-ʡ,02A1,latin letter glottal stop with stroke,epiglottal plosive
-ʢ,02A2,latin letter reversed glottal stop with stroke,voiced epiglottal fricative
-ǀ,01C0,latin letter dental click,voiceless dental click
-ǁ,01C1,latin letter lateral click,voiceless alveolar lateral click
-ǂ,01C2,latin letter alveolar click,voiceless palatoalveolar click
-ǃ,01C3,latin letter retroflex click,voiceless (post)alveolar click
-ʘ,0298,latin letter bilabial click,voiceless bilabial click
-β,03B2,greek small letter beta,voiced bilabial fricative
-θ,03B8,greek small letter theta,voiceless dental fricative
-χ,03C7,greek small letter chi,voiceless uvular fricative
-◌̴,0334,combining tilde overlay,velarized or pharyngealized
-◌̼,033C,combining seagull below,linguolabial
-◌̪,032A,combining bridge below,dental
-◌̻,033B,combining square below,laminal
-◌̺,033A,combining inverted bridge below,apical
-◌̟,031F,combining plus sign below,advanced
-◌̠,0320,combining minus sign below,retracted
-◌̝,031D,combining up tack below,raised
-◌̞,031E,combining down tack below,lowered
-◌̘,0318,combining left tack below,advanced tongue root
-◌̙,0319,combining right tack below,retracted tongue root
-◌̜,031C,combining left half ring below,less rounded
-◌̹,0339,combining right half ring below,more rounded
-◌̬,032C,combining caron below,voiced
-◌̥,0325,combining ring below,voiceless
-◌̰,0330,combining tilde below,creaky voiced
-◌̤,0324,combining diaeresis below,breathy voiced
-◌̩,0329,combining vertical line below,syllabic
-◌̯,032F,combining inverted breve below,non-syllabic
-◌̃,0303,combining tilde,nasalized
-◌̈,0308,combining diaeresis,centralized
-◌̽,033D,combining x above,mid-centralized
-◌̆,0306,combining breve,extra-short
-◌̚,031A,combining left angle above,no audible release
-◌˞,02DE,modifier letter rhotic hook,rhotacized
-ˡ,02E1,modifier letter small l,lateral release
-ⁿ,207F,superscript latin small letter n,nasal release
-ʷ,02B7,modifier letter small w,labialized
-ʲ,02B2,modifier letter small j,palatalized
-ˠ,02E0,modifier letter small gamma,velarized
-ˤ,02E4,modifier letter small reversed glottal stop,pharyngealized
-ʰ,02B0,modifier letter small h,aspirated
-ʼ,02BC,modifier letter apostrophe,ejective
-ː,02D0,modifier letter triangular colon,long
-ˑ,02D1,modifier letter half triangular colon,half-long
-͡,0361,combining double inverted breve,tie bar
-ˈ,02C8,modifier letter vertical line,primary stress
-ˌ,02CC,modifier letter low vertical line,secondary stress
-˥,02E5,modifier letter extra-high tone bar,extra high tone
-˦,02E6,modifier letter high tone bar,high tone
-˧,02E7,modifier letter mid tone bar,mid tone
-˨,02E8,modifier letter low tone bar,low tone
-˩,02E9,modifier letter extra-low tone bar,extra low tone
-ꜛ,A71B,modifier letter raised up arrow,upstep
-ꜜ,A71C,modifier letter raised down arrow,downstep
-↑,2191,upwards arrow,global rise
-↓,2193,downwards arrow,global fall
-↗,2197,north east arrow,global rise
-↘,2198,south east arrow,global fall
-\u0020,0020,space,word break
-".",002E,full stop,syllable break
-|,007C,vertical line,minor group break (foot)
-‖,2016,double vertical line,major group break (intonation)
-‿,203F,undertie,linking (absence of a break)
-◌̊,030A,combining ring above,voiceless (above)
-g,0067,latin small letter g,voiced velar plosive
-◌̋,030B,combining double acute accent,extra high tone
-◌́,0301,combining acute accent,high tone
-◌̄,0304,combining macron,mid tone
-◌̀,0300,combining grave accent,low tone
-◌̏,030F,combining double grave accent,extra low tone
-◌̂,0302,combining circumflex accent,falling
-◌̌,030C,combining caron,rising
-◌᷄,1DC4,combining macron-acute,high rising
-◌᷅,1DC5,combining grave-macron,low rising
-◌᷆,1DC6,combining macron-grave,low falling
-◌᷇,1DC7,combining acute-macron,high falling
-◌᷈,1DC8,combining grave-acute-grave,rising-falling
-◌᷉,1DC9,combining acute-grave-acute,falling-rising
-◌͜,035C,combining double breve below,tie bar (below)
-‼,203C,double exclamation mark,retroflex click
-ᶑ,1D91,latin small letter d with hook and tail,voiced retroflex implosive
-◌͈,0348,combining double vertical line below,fortis
-◌͉,0349,combining left angle below,lenis
-◌͓,0353,combining x below,frictionalized
-◌̮,032E,combining breve below,derhoticized
-◌͇,0347,combining equals sign below,non-sibilant
-◌ˀ,02C0,modifier letter glottal stop,glottalized
-ʱ◌,02B1,modifier letter small h with hook,voiced pre-aspirated
-◌ᴱ,1D31,modifier letter capital e,epilaryngeal phonation
+IPA,unicode,uni_name,ipa_name,phon_type
+a,61,latin small letter a,open front unrounded,base
+æ,0,latin small letter ae,raised open front unrounded,base
+ɐ,250,latin small letter turned a,lowered schwa,base
+ɑ,251,latin small letter alpha,open back unrounded,base
+ɒ,252,latin small letter turned alpha,open back rounded,base
+b,62,latin small letter b,voiced bilabial plosive,base
+ʙ,299,latin letter small capital b,voiced bilabial trill,base
+ɓ,253,latin small letter b with hook,voiced bilabial implosive,base
+c,63,latin small letter c,voiceless palatal plosive,base
+ç,0,latin small letter c with cedilla,voiceless palatal fricative,base
+ɕ,255,latin small letter c with curl,voiceless alveolo-palatal fricative,base
+d,64,latin small letter d,voiced alveolar plosive,base
+ð,00F0,latin small letter eth,voiced dental fricative,base
+ɖ,256,latin small letter d with tail,voiced retroflex plosive,base
+ɗ,257,latin small letter d with hook,voiced dental/alveolar implosive,base
+e,65,latin small letter e,close-mid front unrounded,base
+ə,259,latin small letter schwa,mid-central schwa,base
+ɛ,025B,latin small letter open e,open-mid front unrounded,base
+ɘ,258,latin small letter reversed e,close-mid central unrounded,base
+ɜ,025C,latin small letter reversed open e,open-mid central unrounded,base
+ɞ,025E,latin small letter closed reversed open e,open-mid central rounded,base
+f,66,latin small letter f,voiceless labiodental fricative,base
+ɡ,261,latin small letter script g,voiced velar plosive,base
+ɢ,262,latin letter small capital g,voiced uvular plosive,base
+ɠ,260,latin small letter g with hook,voiced velar implosive,base
+ʛ,029B,latin letter small capital g with hook,voiced uvular implosive,base
+ɤ,264,latin small letter rams horn,close-mid back unrounded,base
+ɣ,263,latin small letter gamma,voiced velar fricative,base
+h,68,latin small letter h,voiceless glottal fricative,base
+ħ,127,latin small letter h with stroke,voiceless pharyngeal fricative,base
+ʜ,029C,latin letter small capital h,voiceless epiglottal fricative,base
+ɦ,266,latin small letter h with hook,voiced glottal fricative,base
+ɧ,267,latin small letter heng with hook,simultaneous voiceless postalveolar-velar fricative,base
+ɥ,265,latin small letter turned h,voiced labial-palatal approximant,base
+i,69,latin small letter i,close front unrounded,base
+ɪ,026A,latin letter small capital i,lax close front unrounded,base
+ɨ,268,latin small letter i with stroke,close central unrounded,base
+j,006A,latin small letter j,voiced palatal approximant,base
+ʝ,029D,latin small letter j with crossed tail,voiced palatal fricative,base
+ɟ,025F,latin small letter dotless j with stroke,voiced palatal plosive,base
+ʄ,284,latin small letter dotless j with stroke and hook,voiced palatal implosive,base
+k,006B,latin small letter k,voiceless velar plosive,base
+l,006C,latin small letter l,voiced alveolar lateral approximant,base
+ʟ,029F,latin letter small capital l,voiced velar lateral approximant,base
+ɬ,026C,latin small letter l with belt,voiceless alveolar lateral fricative,base
+ɭ,026D,latin small letter l with retroflex hook,voiced retroflex lateral approximant,base
+ɮ,026E,latin small letter lezh,voiced alveolar lateral fricative,base
+ʎ,028E,latin small letter turned y,voiced palatal lateral approximant,base
+m,006D,latin small letter m,voiced bilabial nasal,base
+ɱ,271,latin small letter m with hook,voiced labiodental nasal,base
+n,006E,latin small letter n,voiced alveolar nasal,base
+ɴ,274,latin letter small capital n,voiced uvular nasal,base
+ɲ,272,latin small letter n with left hook,voiced palatal nasal,base
+ɳ,273,latin small letter n with retroflex hook,voiced retroflex nasal,base
+ŋ,014B,latin small letter eng,voiced velar nasal,base
+o,006F,latin small letter o,close-mid back rounded,base
+ø,00F8,latin small letter o with stroke,close-mid front rounded,base
+œ,153,latin small ligature oe,open-mid front rounded,base
+ɶ,276,latin letter small capital oe,open front rounded,base
+ɔ,254,latin small letter open o,open-mid back rounded,base
+ɵ,275,latin small letter barred o,close-mid central rounded,base
+p,70,latin small letter p,voiceless bilabial plosive,base
+ɸ,278,latin small letter phi,voiceless bilabial fricative,base
+q,71,latin small letter q,voiceless uvular plosive,base
+r,72,latin small letter r,voiced alveolar trill,base
+ʀ,280,latin letter small capital r,voiced uvular trill,base
+ɹ,279,latin small letter turned r,voiced alveolar approximant,base
+ɺ,027A,latin small letter turned r with long leg,voiced alveolar lateral flap,base
+ɻ,027B,latin small letter turned r with hook,voiced retroflex approximant,base
+ɽ,027D,latin small letter r with tail,voiced retroflex tap,base
+ɾ,027E,latin small letter r with fishhook,voiced alveolar tap,base
+ʁ,281,latin letter small capital inverted r,voiced uvular fricative,base
+s,73,latin small letter s,voiceless alveolar fricative,base
+ʂ,282,latin small letter s with hook,voiceless retroflex fricative,base
+ʃ,283,latin small letter esh,voiceless postalveolar fricative,base
+t,74,latin small letter t,voiceless alveolar plosive,base
+ʈ,288,latin small letter t with retroflex hook,voiceless retroflex plosive,base
+u,75,latin small letter u,close back rounded,base
+ʉ,289,latin small letter u bar,close central rounded,base
+ɯ,026F,latin small letter turned m,close back unrounded,base
+ɰ,270,latin small letter turned m with long leg,voiced velar approximant,base
+ʊ,028A,latin small letter upsilon,lax close back rounded,base
+v,76,latin small letter v,voiced labiodental fricative,base
+ʋ,028B,latin small letter v with hook,voiced labiodental approximant,base
+ⱱ,2C71,latin small letter v with right hook,voiced labiodental tap,base
+ʌ,028C,latin small letter turned v,open-mid back unrounded,base
+w,77,latin small letter w,voiced labial-velar approximant,base
+ʍ,028D,latin small letter turned w,voiceless labial-velar fricative,base
+x,78,latin small letter x,voiceless velar fricative,base
+y,79,latin small letter y,close front rounded,base
+ʏ,028F,latin letter small capital y,lax close front rounded,base
+z,007A,latin small letter z,voiced alveolar fricative,base
+ʐ,290,latin small letter z with retroflex hook,voiced retroflex fricative,base
+ʑ,291,latin small letter z with curl,voiced alveolo-palatal fricative,base
+ʒ,292,latin small letter ezh,voiced postalveolar fricative,base
+ʔ,294,latin letter glottal stop,voiceless glottal plosive,base
+ʕ,295,latin letter pharyngeal voiced fricative,voiced pharyngeal fricative,base
+ʡ,02A1,latin letter glottal stop with stroke,epiglottal plosive,base
+ʢ,02A2,latin letter reversed glottal stop with stroke,voiced epiglottal fricative,base
+ǀ,01C0,latin letter dental click,voiceless dental click,base
+ǁ,01C1,latin letter lateral click,voiceless alveolar lateral click,base
+ǂ,01C2,latin letter alveolar click,voiceless palatoalveolar click,base
+ǃ,01C3,latin letter retroflex click,voiceless (post)alveolar click,base
+ʘ,298,latin letter bilabial click,voiceless bilabial click,base
+β,03B2,greek small letter beta,voiced bilabial fricative,base
+θ,03B8,greek small letter theta,voiceless dental fricative,base
+χ,03C7,greek small letter chi,voiceless uvular fricative,base
+◌̴,334,combining tilde overlay,velarized or pharyngealized,sec_art
+◌̼,033C,combining seagull below,linguolabial,cons_art
+◌̪,032A,combining bridge below,dental,cons_art
+◌̻,033B,combining square below,laminal,cons_art
+◌̺,033A,combining inverted bridge below,apical,cons_art
+◌̟,031F,combining plus sign below,advanced,cons_art
+◌̠,320,combining minus sign below,retracted,cons_art
+◌̝,031D,combining up tack below,raised,vow_art
+◌̞,031E,combining down tack below,lowered,vow_art
+◌̘,318,combining left tack below,advanced tongue root,vow_art
+◌̙,319,combining right tack below,retracted tongue root,vow_art
+◌̜,031C,combining left half ring below,less rounded,vow_art
+◌̹,339,combining right half ring below,more rounded,vow_art
+◌̬,032C,combining caron below,voiced,phonation
+◌̥,325,combining ring below,voiceless,phonation
+◌̰,330,combining tilde below,creaky voiced,phonation
+◌̤,324,combining diaeresis below,breathy voiced,phonation
+◌̩,329,combining vertical line below,syllabic,syllable
+◌̯,032F,combining inverted breve below,non-syllabic,syllable
+◌̃,303,combining tilde,nasalized,vow_art
+◌̈,308,combining diaeresis,centralized,vow_art
+◌̽,033D,combining x above,mid-centralized,vow_art
+◌̆,306,combining breve,extra-short,length
+◌̚,031A,combining left angle above,no audible release,release
+◌˞,02DE,modifier letter rhotic hook,rhotacized,vow_art
+ˡ,20,modifier letter small l,lateral release,release
+ⁿ,207F,superscript latin small letter n,nasal release,release
+ʷ,02B7,modifier letter small w,labialized,sec_art
+ʲ,02B2,modifier letter small j,palatalized,sec_art
+ˠ,2,modifier letter small gamma,velarized,sec_art
+ˤ,20000,modifier letter small reversed glottal stop,pharyngealized,sec_art
+ʰ,02B0,modifier letter small h,aspirated,phonation
+ʼ,02BC,modifier letter apostrophe,ejective,phonation
+ː,02D0,modifier letter triangular colon,long,length
+ˑ,02D1,modifier letter half triangular colon,half-long,length
+͡,361,combining double inverted breve,tie bar,tie
+ˈ,02C8,modifier letter vertical line,primary stress,stress
+ˌ,02CC,modifier letter low vertical line,secondary stress,stress
+˥,200000,modifier letter extra-high tone bar,extra high tone,tone
+˦,2000000,modifier letter high tone bar,high tone,tone
+˧,20000000,modifier letter mid tone bar,mid tone,tone
+˨,200000000,modifier letter low tone bar,low tone,tone
+˩,2000000000,modifier letter extra-low tone bar,extra low tone,tone
+ꜛ,A71B,modifier letter raised up arrow,upstep,tone
+ꜜ,A71C,modifier letter raised down arrow,downstep,tone
+↑,2191,upwards arrow,global rise,tone
+↓,2193,downwards arrow,global fall,tone
+↗,2197,north east arrow,global rise,tone
+↘,2198,south east arrow,global fall,tone
+\u0020,20,space,word break,break
+.,002E,full stop,syllable break,break
+|,007C,vertical line,minor group break (foot),break
+‖,2016,double vertical line,major group break (intonation),break
+‿,203F,undertie,linking (absence of a break),break
+◌̊,030A,combining ring above,voiceless (above),phonation
+g,67,latin small letter g,voiced velar plosive,base
+◌̋,030B,combining double acute accent,extra high tone,tone
+◌́,301,combining acute accent,high tone,tone
+◌̄,304,combining macron,mid tone,tone
+◌̀,300,combining grave accent,low tone,tone
+◌̏,030F,combining double grave accent,extra low tone,tone
+◌̂,302,combining circumflex accent,falling,tone
+◌̌,030C,combining caron,rising,tone
+◌᷄,1DC4,combining macron-acute,high rising,tone
+◌᷅,1DC5,combining grave-macron,low rising,tone
+◌᷆,1DC6,combining macron-grave,low falling,tone
+◌᷇,1DC7,combining acute-macron,high falling,tone
+◌᷈,1DC8,combining grave-acute-grave,rising-falling,tone
+◌᷉,1DC9,combining acute-grave-acute,falling-rising,tone
+◌͜,035C,combining double breve below,tie bar (below),tie
+‼,203C,double exclamation mark,retroflex click,base
+ᶑ,1D91,latin small letter d with hook and tail,voiced retroflex implosive,base
+◌͈,348,combining double vertical line below,fortis,phonation
+◌͉,349,combining left angle below,lenis,phonation
+◌͓,353,combining x below,frictionalized,cons_art
+◌̮,032E,combining breve below,derhoticized,vow_art
+◌͇,347,combining equals sign below,non-sibilant,cons_art
+◌ˀ,02C0,modifier letter glottal stop,glottalized,sec_art
+ʱ◌,02B1,modifier letter small h with hook,voiced pre-aspirated,phonation
+◌ᴱ,1D31,modifier letter capital e,epilaryngeal phonation,phonation

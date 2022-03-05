@@ -14,6 +14,8 @@
 
 * Improved base phone detection of `featurise()`.
 
+* `ipa_symbols` now includes a column (`phon_type`) which differentiates base characters from secondary articulations, vowel/consonant articulation, stress, tone, and more.
+
 
 
 

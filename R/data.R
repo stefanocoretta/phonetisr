@@ -6,7 +6,8 @@
 #'   \item{unicode}{Unicode code.}
 #'   \item{uni_name}{Unicode name.}
 #'   \item{ipa_name}{IPA name.}
-#'   \item{type}{Symbol type (`consonant`, `vowel`, `diacritic`).}
+#'   \item{phon_type}{The phonetic type of the symbol.}
+#'   \item{type}{General character type (`consonant`, `vowel`, `diacritic`).}
 #'   \item{height_ipa}{Vowel openness.}
 #'   \item{height}{Vowel height.}
 #'   \item{backness}{Vowel backness.}
