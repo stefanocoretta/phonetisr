@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">phonetisr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.2.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.3</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,9 +39,9 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.0.2.9000" id="phonetisr-v0029000">phonetisr v0.0.2.9000<a class="anchor" aria-label="anchor" href="#phonetisr-v0029000"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.0.3" id="phonetisr-v003">phonetisr v0.0.3<a class="anchor" aria-label="anchor" href="#phonetisr-v003"></a></h2>
 <div class="section level3">
-<h3 id="added-0-0-2-9000">Added<a class="anchor" aria-label="anchor" href="#added-0-0-2-9000"></a></h3>
+<h3 id="added-0-0-3">Added<a class="anchor" aria-label="anchor" href="#added-0-0-3"></a></h3>
 <ul><li><p><code>ignore_stress</code> and <code>ignore_tone</code> in <code><a href="../reference/phonetise.html">phonetise()</a></code> ignore and remove stress and tone diacritics and letters. They are <code>TRUE</code> by default.</p></li>
 <li><p><code>all_multi</code> argument in <code><a href="../reference/phonetise.html">phonetise()</a></code> sets <code>diacritics</code>, <code>affricates</code>, <code>v_sequences</code> and <code>prenasalised</code> to <code>TRUE</code>.</p></li>
 <li><p><code>prenasalised</code> argument in <code><a href="../reference/phonetise.html">phonetise()</a></code> parses prenasalised consonants as single phones.</p></li>
@@ -49,7 +49,7 @@
 <li><p><code>sanitise = TRUE</code> prints a message with info on removed non-IPA characters if any are found.</p></li>
 </ul></div>
 <div class="section level3">
-<h3 id="changed-0-0-2-9000">Changed<a class="anchor" aria-label="anchor" href="#changed-0-0-2-9000"></a></h3>
+<h3 id="changed-0-0-3">Changed<a class="anchor" aria-label="anchor" href="#changed-0-0-3"></a></h3>
 <ul><li><p>Improved base phone detection of <code><a href="../reference/featurise.html">featurise()</a></code>.</p></li>
 <li><p><code>ipa_symbols</code> now includes a column (<code>phon_type</code>) which differentiates base characters from secondary articulations, vowel/consonant articulation, stress, tone, and more.</p></li>
 <li><p>If <code>split = FALSE</code> in <code><a href="../reference/phonetise.html">phonetise()</a></code>, output a character vector rather than a list.</p></li>
