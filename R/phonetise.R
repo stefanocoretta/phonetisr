@@ -49,6 +49,7 @@
 #'
 #' # Don't split strings and use "." as separator
 #' phonetise(ipa, multi = ph, split = FALSE, sep = ".")
+#'
 #' @export
 phonetise <- function(strings, multi = NULL, regex = NULL, split = TRUE,
                       sep = " ", sanitise = TRUE,
@@ -206,7 +207,7 @@ phonetise <- function(strings, multi = NULL, regex = NULL, split = TRUE,
     return(output)
   } else {
     output <- lapply(output, paste, collapse = sep)
-    return(output)
+    return(unlist(output))
   }
 }
 

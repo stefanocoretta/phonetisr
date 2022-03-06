@@ -103,6 +103,7 @@ phonetise(ipa, regex = ".(\u0303|\u0325|\u02B0)")
 
 # Don't split strings and use "." as separator
 phonetise(ipa, multi = ph, split = FALSE, sep = ".")
+
 ipa <- c("pʰãkʰ", "tʰum̥", "ɛkʰɯ")
 ph <- c("pʰ", "tʰ", "kʰ", "ã", "m̥")
 

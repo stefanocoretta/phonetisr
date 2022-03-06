@@ -18,6 +18,8 @@
 
 * `ipa_symbols` now includes a column (`phon_type`) which differentiates base characters from secondary articulations, vowel/consonant articulation, stress, tone, and more.
 
+* If `split = FALSE` in `phonetise()`, output a character vector rather than a list.
+
 
 
 
