@@ -5,8 +5,8 @@
 
 <!-- badges: start -->
 
-[![](https://img.shields.io/badge/devel%20version-0.0.2.9000-blue.svg)](https://github.com/phonetisr)
-[![](https://img.shields.io/badge/devel%20version-0.0.2.9000-orange.svg)](https://github.com/phonetisr)
+[![](https://img.shields.io/badge/devel%20version-0.0.3-blue.svg)](https://github.com/phonetisr)
+[![](https://img.shields.io/badge/devel%20version-0.0.3-orange.svg)](https://github.com/phonetisr)
 [![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
