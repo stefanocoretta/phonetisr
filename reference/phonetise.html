@@ -16,7 +16,7 @@ column.'><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mat
     
     <a class="navbar-brand me-2" href="../index.html">phonetisr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.2.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,10 +61,14 @@ column.</p>
   split <span class="op">=</span> <span class="cn">TRUE</span>,
   sep <span class="op">=</span> <span class="st">" "</span>,
   sanitise <span class="op">=</span> <span class="cn">TRUE</span>,
-  sanitize <span class="op">=</span> <span class="va">sanitise</span>,
+  ignore_stress <span class="op">=</span> <span class="cn">TRUE</span>,
+  ignore_tone <span class="op">=</span> <span class="cn">TRUE</span>,
   diacritics <span class="op">=</span> <span class="cn">FALSE</span>,
   affricates <span class="op">=</span> <span class="cn">FALSE</span>,
-  v_sequences <span class="op">=</span> <span class="cn">FALSE</span>
+  v_sequences <span class="op">=</span> <span class="cn">FALSE</span>,
+  prenasalised <span class="op">=</span> <span class="cn">FALSE</span>,
+  all_multi <span class="op">=</span> <span class="cn">FALSE</span>,
+  sanitize <span class="op">=</span> <span class="va">sanitise</span>
 <span class="op">)</span>
 
 <span class="fu">phonetize</span><span class="op">(</span>
@@ -74,10 +78,14 @@ column.</p>
   split <span class="op">=</span> <span class="cn">TRUE</span>,
   sep <span class="op">=</span> <span class="st">" "</span>,
   sanitise <span class="op">=</span> <span class="cn">TRUE</span>,
-  sanitize <span class="op">=</span> <span class="va">sanitise</span>,
+  ignore_stress <span class="op">=</span> <span class="cn">TRUE</span>,
+  ignore_tone <span class="op">=</span> <span class="cn">TRUE</span>,
   diacritics <span class="op">=</span> <span class="cn">FALSE</span>,
   affricates <span class="op">=</span> <span class="cn">FALSE</span>,
-  v_sequences <span class="op">=</span> <span class="cn">FALSE</span>
+  v_sequences <span class="op">=</span> <span class="cn">FALSE</span>,
+  prenasalised <span class="op">=</span> <span class="cn">FALSE</span>,
+  all_multi <span class="op">=</span> <span class="cn">FALSE</span>,
+  sanitize <span class="op">=</span> <span class="va">sanitise</span>
 <span class="op">)</span></code></pre></div>
     </div>
 
@@ -97,19 +105,30 @@ into phones (i.e. the output is a vector with one element per phone). If
 set to <code>FALSE</code>, the string is not split and the phones are separated with
 the character defined in <code>sep</code>.</p></dd>
 <dt>sep</dt>
-<dd><p>A character to be used as the separator of the phones if <code>split = FALSE</code> (default is
-<code></code>, space).</p></dd>
+<dd><p>A character to be used as the separator of the phones if <code>split = FALSE</code> (default is <code></code>, space).</p></dd>
 <dt>sanitise</dt>
 <dd><p>Whether to remove all non-IPA characters (<code>TRUE</code> by default).</p></dd>
-<dt>sanitize</dt>
-<dd><p>Alias of <code>sanitise</code>.</p></dd>
+<dt>ignore_stress</dt>
+<dd><p>If <code>TRUE</code> (the default), stress marks are not parsed.</p></dd>
+<dt>ignore_tone</dt>
+<dd><p>If <code>TRUE</code> (the default), tone marks and letters are not parsed.</p></dd>
 <dt>diacritics</dt>
 <dd><p>If set to <code>TRUE</code>, parses all valid diacritics as part of
 the previous character (<code>FALSE</code> by default).</p></dd>
 <dt>affricates</dt>
-<dd><p>If set to <code>TRUE</code>, parses homorganic stop + fricative as affricates.</p></dd>
+<dd><p>If set to <code>TRUE</code>, parses homorganic stop + fricative as
+affricates.</p></dd>
 <dt>v_sequences</dt>
-<dd><p>If set to <code>TRUE</code>, collapses vowel sequences (<code>FALSE</code> by default).</p></dd>
+<dd><p>If set to <code>TRUE</code>, collapses vowel sequences (<code>FALSE</code> by
+default).</p></dd>
+<dt>prenasalised</dt>
+<dd><p>If set to <code>TRUE</code>, parses prenasalised consonants as such
+(<code>FALSE</code> by default).</p></dd>
+<dt>all_multi</dt>
+<dd><p>If set to <code>TRUE</code>, <code>diacritics</code>, <code>affricates</code>, <code>v_sequences</code>
+and <code>prenasalised</code> are all set to <code>TRUE</code>.</p></dd>
+<dt>sanitize</dt>
+<dd><p>Alias of <code>sanitise</code>.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -160,15 +179,8 @@ the previous character (<code>FALSE</code> by default).</p></dd>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># Don't split strings and use "." as separator</span></span>
 <span class="r-in"><span class="fu">phonetise</span><span class="op">(</span><span class="va">ipa</span>, multi <span class="op">=</span> <span class="va">ph</span>, split <span class="op">=</span> <span class="cn">FALSE</span>, sep <span class="op">=</span> <span class="st">"."</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "pʰ.ã.kʰ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "tʰ.u.m̥"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [[3]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "ɛ.kʰ.ɯ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "pʰ.ã.kʰ" "tʰ.u.m̥"  "ɛ.kʰ.ɯ" </span>
+<span class="r-in"></span>
 <span class="r-in"><span class="va">ipa</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"pʰãkʰ"</span>, <span class="st">"tʰum̥"</span>, <span class="st">"ɛkʰɯ"</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">ph</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"pʰ"</span>, <span class="st">"tʰ"</span>, <span class="st">"kʰ"</span>, <span class="st">"ã"</span>, <span class="st">"m̥"</span><span class="op">)</span></span>
 <span class="r-in"></span>
