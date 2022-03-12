@@ -3,6 +3,7 @@
 export("%>%")
 export(featurise)
 export(get_no_ipa)
+export(ph_search)
 export(phonetise)
 export(phonetize)
 importFrom(lifecycle,deprecated)

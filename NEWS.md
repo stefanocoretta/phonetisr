@@ -1,8 +1,12 @@
 # phonetisr v0.0.3.9000
 
+## Added
+
+* `ph_search()` to search and extract phones with phonetic expressions.
+
 ## Fixed
 
-- `featurise()` now correctly finds the base of non-space-modifying characters.
+* `featurise()` now correctly finds the base of non-space-modifying characters.
 
 
 
