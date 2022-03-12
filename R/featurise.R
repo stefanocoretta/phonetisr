@@ -15,11 +15,7 @@ featurise <- function(phlist) {
     dplyr::count(phone, name = "count") %>%
     dplyr::arrange(count) %>%
     dplyr::mutate(
-        base = ifelse(
-            stringr::str_count(phone) > 1,
-            stringr::str_remove_all(phone, paste0(ipa_diacritics, collapse = "|")),
-            phone
-        ),
+        base = stringr::str_remove_all(phone, rm_diacritics_regex),
         base = ifelse(
             stringr::str_count(base) > 1,
             stringr::str_sub(base, 1, 1),

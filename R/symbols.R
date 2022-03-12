@@ -103,6 +103,12 @@ diacritics_regex <- paste0(
   ")+"
 )
 
+rm_diacritics_regex <- paste0(
+  "(",
+  stringr::str_flatten(paste0("\\u", diacritics), collapse = "|"),
+  ")+"
+)
+
 ## Tone diacritics and letters ----
 
 tones <- c("\u02E5", "\u02E6", "\u02E7", "\u02E8", "\u02E9", "\uA71B", "\uA71C",

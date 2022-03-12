@@ -1,5 +1,9 @@
 # phonetisr v0.0.3.9000
 
+## Fixed
+
+- `featurise()` now correctly finds the base of non-space-modifying characters.
+
 
 
 
