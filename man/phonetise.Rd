@@ -53,7 +53,7 @@ into phones (i.e. the output is a vector with one element per phone). If
 set to \code{FALSE}, the string is not split and the phones are separated with
 the character defined in \code{sep}.}
 
-\item{sep}{A character to be used as the separator of the phones if \code{split = FALSE} (default is \verb{}, space).}
+\item{sep}{A character to be used as the separator of the phones if \code{split = FALSE} (default is \verb{ }, space).}
 
 \item{sanitise}{Whether to remove all non-IPA characters (\code{TRUE} by default).}
 
