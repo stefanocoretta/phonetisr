@@ -83,9 +83,7 @@ A list.
 }
 \description{
 \code{phonetise()} tokenises strings of IPA symbols (like phonetic transcriptions
-of words) into individual "phones". The output is a tibble with two columns:
-\code{ipa}, the IPA strings, and \code{ipa_token}, the tokenised IPA strings as a list
-column.
+of words) into individual "phones". The output is a list.
 }
 \examples{
 ipa <- c("pʰãkʰ", "tʰum̥", "ɛkʰɯ")
@@ -103,10 +101,5 @@ phonetise(ipa, regex = ".(\u0303|\u0325|\u02B0)")
 
 # Don't split strings and use "." as separator
 phonetise(ipa, multi = ph, split = FALSE, sep = ".")
-
-ipa <- c("pʰãkʰ", "tʰum̥", "ɛkʰɯ")
-ph <- c("pʰ", "tʰ", "kʰ", "ã", "m̥")
-
-phonetise(ipa, multi = ph)
 
 }

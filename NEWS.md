@@ -1,3 +1,12 @@
+# phonetisr v0.0.4.9000
+
+## Fixed
+
+- Corrected documentation of `phonetise()`.
+
+
+
+
 # phonetisr v0.0.4
 
 ## Added

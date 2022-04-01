@@ -1,7 +1,7 @@
 Package: phonetisr
 Title: A Very Naive IPA Tokeniser
-Version: 0.0.4
-Date: 2022/03/31
+Version: 0.0.4.9000
+Date: 2022/04/01
 Authors@R: 
     person(given = "Stefano",
            family = "Coretta",

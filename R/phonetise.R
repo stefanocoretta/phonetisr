@@ -1,9 +1,7 @@
 #' Tokenise IPA strings
 #'
 #' `phonetise()` tokenises strings of IPA symbols (like phonetic transcriptions
-#' of words) into individual "phones". The output is a tibble with two columns:
-#' `ipa`, the IPA strings, and `ipa_token`, the tokenised IPA strings as a list
-#' column.
+#' of words) into individual "phones". The output is a list.
 #'
 #' @param strings A character vector with a list of words in IPA.
 #' @param multi A character vector of one or more multi-character phones as
@@ -212,11 +210,6 @@ phonetise <- function(strings, multi = NULL, regex = NULL, split = TRUE,
 }
 
 #' @rdname phonetise
-#' @examples
-#' ipa <- c("pʰãkʰ", "tʰum̥", "ɛkʰɯ")
-#' ph <- c("pʰ", "tʰ", "kʰ", "ã", "m̥")
-#'
-#' phonetise(ipa, multi = ph)
 #'
 #' @export
 phonetize <- phonetise
