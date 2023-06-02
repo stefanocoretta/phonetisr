@@ -5,8 +5,8 @@
 
 <!-- badges: start -->
 
-[![](https://img.shields.io/badge/devel%20version-0.0.4-blue.svg)](https://github.com/phonetisr)
-[![](https://img.shields.io/badge/devel%20version-0.0.4-orange.svg)](https://github.com/phonetisr)
+[![](https://img.shields.io/badge/devel%20version-0.0.5-blue.svg)](https://github.com/phonetisr)
+[![](https://img.shields.io/badge/devel%20version-0.0.5-orange.svg)](https://github.com/phonetisr)
 [![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
@@ -26,7 +26,7 @@ You can install the development version from
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("stefanocoretta/phonetisr@v0.0.4")
+remotes::install_github("stefanocoretta/phonetisr@v0.0.5")
 ```
 
 ## Usage
@@ -46,7 +46,7 @@ phonetise(ipa, multi = ph)
 
 ## Roadmap
 
--   [x] Scan for illegal (non-IPA) characters.
--   [x] Provide a list of default multi-character phones.
--   [ ] Functions for data import/export.
--   [ ] Ignore diacritics.
+- [x] Scan for illegal (non-IPA) characters.
+- [x] Provide a list of default multi-character phones.
+- [ ] Functions for data import/export.
+- [ ] Ignore diacritics.
