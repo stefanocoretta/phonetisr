@@ -1,5 +1,5 @@
 utils::globalVariables(
     c(
-        "phone", "count", "base"
+        "phone", "count", "base", "type"
     )
 )

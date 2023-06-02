@@ -2,8 +2,9 @@
 
 ## Fixed
 
-- Corrected documentation of `phonetise()`.
+* Corrected documentation of `phonetise()`.
 
+* Fixed wrong parsing of <ç>.
 
 
 

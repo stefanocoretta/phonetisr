@@ -162,6 +162,10 @@ phonetise <- function(strings, multi = NULL, regex = NULL, split = TRUE,
     multi <- c(multi, multi_prenasal)
   }
 
+  multi_len <- multi_len + 1
+  # Note that "ç" below is actually <U+0063,U+0327>
+  multi <- c(multi, "ç")
+
   ####
   # Main tokeniser procedure ########################################
   ####
