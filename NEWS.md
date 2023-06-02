@@ -6,6 +6,8 @@
 
 * Fixed wrong parsing of <ç>.
 
+* Fixed missing featurisation of <ç>.
+
 
 
 # phonetisr v0.0.4
