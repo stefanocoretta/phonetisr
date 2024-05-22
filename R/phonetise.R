@@ -29,7 +29,7 @@
 #'   and `prenasalised` are all set to `TRUE`.
 #' @param sanitize Alias of `sanitise`.
 #'
-#' @return A list.
+#' @return A list of phonetised strings.
 #'
 #' @examples
 #' ipa <- c("pʰãkʰ", "tʰum̥", "ɛkʰɯ")
