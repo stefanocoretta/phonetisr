@@ -79,7 +79,7 @@ and \code{prenasalised} are all set to \code{TRUE}.}
 \item{sanitize}{Alias of \code{sanitise}.}
 }
 \value{
-A list.
+A list of phonetised strings.
 }
 \description{
 \code{phonetise()} tokenises strings of IPA symbols (like phonetic transcriptions

@@ -6,7 +6,7 @@
 \alias{phonetisr-package}
 \title{phonetisr: A Very Naive IPA Tokeniser}
 \description{
-What the package does (one paragraph).
+It provides users with functions to parse International Phonetic Alphabet transcriptions into phones for further processing.
 }
 \seealso{
 Useful links:

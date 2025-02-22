@@ -1,6 +1,6 @@
 Package: phonetisr
 Title: A Very Naive IPA Tokeniser
-Version: 0.0.5
+Version: 0.0.5.9000
 Date: 2023/06/02
 Authors@R: 
     person(given = "Stefano",
@@ -8,12 +8,12 @@ Authors@R:
            role = c("aut", "cre"),
            email = paste0("stefano.coretta", "@", "gmail.com"),
            comment = c(ORCID = "0000-0001-9627-5532"))
-Description: What the package does (one paragraph).
+Description: It provides users with functions to parse International Phonetic Alphabet transcriptions into phones for further processing.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Imports:
     cli,
     dplyr,

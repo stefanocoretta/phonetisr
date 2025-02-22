@@ -7,7 +7,7 @@
 ph_search(phlist, phonex)
 }
 \arguments{
-\item{phlist}{A list of phones or the output of \code{phonetise()}.}
+\item{phlist}{The output of \code{phonetise()}.}
 
 \item{phonex}{A phonetic expression. Supported shorthands are \code{C} for
 consonant, \code{V} for vowel, and \verb{#} for word boundary.}
@@ -16,11 +16,17 @@ consonant, \code{V} for vowel, and \verb{#} for word boundary.}
 A list.
 }
 \description{
-Given a list of phonetised strings, find phones.
+Given a vector of phonetised strings, find phones.
 }
 \examples{
-ipa <- c("pʰãkʰ", "tʰum̥", "ɛkʰɯ")
+ipa <- c("pʰãkʰ", "tʰum̥", "ɛkʰɯ", "pun")
 ph <- c("pʰ", "tʰ", "kʰ", "ã", "m̥")
 ipa_ph <- phonetise(ipa, multi = ph)
 ph_search(ipa_ph, "#CV")
+
+# partial matches are also returned
+ph_search(ipa_ph, "p")
+
+# use regular expressions
+ph_search(ipa_ph, "pʰ?V")
 }
