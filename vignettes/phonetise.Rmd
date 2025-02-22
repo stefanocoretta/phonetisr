@@ -1,0 +1,50 @@
+---
+title: "Tokenise IPA transcriptions"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Tokenise IPA transcriptions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Basic usage
+
+```{r setup}
+library(phonetisr)
+```
+
+The main function of phonetisr is `phonetise()`. This function takes a character vector with IPA transcriptions and splits them into phones.
+
+```{r}
+ipa <- c("pʰãkʰ", "tʰum̥", "ɛkʰɯ")
+
+phonetise(ipa)
+```
+
+The default settings will tokenise each IPA symbol separately, rather than each phone, because by default phonetisr has no concept of "phone". IPA diacritics are then tokenised separately. The user can set `diacritics = TRUE` to automatically tokenise all diacritics with the preceding symbol (will not work of course for diacritics that are placed before the base symbol).
+
+```{r}
+phonetise(ipa, diacritics = TRUE)
+```
+
+For the example words above, using `diacritics = TRUE` suffices. But what if you want more control? You can use the `multi` argument to specify phones that are made of multiple characters.
+
+```{r}
+ph <- c("pʰ", "tʰ", "kʰ", "ã", "m̥")
+
+phonetise(ipa, multi = ph)
+```
+
+In some cases you don't want a list of tokenised phones, but a vector where phones are separated by a specified character (like space, or a dot). You can set `split = FALSE` and the default separator (a space) will be used to separate phones in the resulting string. The separator character can be speficied with `sep`.
+
+```{r}
+phonetise(ipa, multi = ph, split = FALSE, sep = ".")
+```
+
