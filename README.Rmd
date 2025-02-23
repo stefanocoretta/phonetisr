@@ -18,9 +18,7 @@ knitr::opts_chunk$set(
 # phonetisr: A Naive IPA Tokeniser
 
 <!-- badges: start -->
-`r badger::badge_cran_release("phonetisr", "blue")`
-`r badger::badge_cran_checks("phonetisr")`
-`r badger::badge_devel(pkg = "phonetisr", color = "orange")`
+`r badger::badge_devel(color = "orange")`
 <!-- badges: end -->
 
 This package is a (naive) tokeniser of phonetic transcriptions in the [International Phonetic Alphabet](https://www.internationalphoneticassociation.org/content/ipa-chart) (IPA).

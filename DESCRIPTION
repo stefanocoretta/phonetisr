@@ -30,4 +30,5 @@ Suggests:
     knitr,
     tidyverse
 VignetteBuilder: knitr
-URL: https://stefanocoretta.github.io/phonetisr/
+URL: https://github.com/stefanocoretta/phonetisr,
+    https://stefanocoretta.github.io/phonetisr/

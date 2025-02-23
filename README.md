@@ -5,10 +5,7 @@
 
 <!-- badges: start -->
 
-[![](https://www.r-pkg.org/badges/version/phonetisr?color=blue)](https://cran.r-project.org/package=phonetisr)
-[![CRAN
-checks](https://badges.cranchecks.info/summary/phonetisr.svg)](https://cran.r-project.org/web/checks/check_results_phonetisr.html)
-[![](https://img.shields.io/badge/devel%20version-0.1.0-orange.svg)](https://github.com/phonetisr)
+[![](https://img.shields.io/badge/devel%20version-0.1.0-orange.svg)](https://github.com/stefanocoretta/phonetisr)
 <!-- badges: end -->
 
 This package is a (naive) tokeniser of phonetic transcriptions in the
