@@ -42,9 +42,90 @@ ph <- c("pʰ", "tʰ", "kʰ", "ã", "m̥")
 phonetise(ipa, multi = ph)
 ```
 
-In some cases you don't want a list of tokenised phones, but a vector where phones are separated by a specified character (like space, or a dot). You can set `split = FALSE` and the default separator (a space) will be used to separate phones in the resulting string. The separator character can be speficied with `sep`.
+In some cases you don't want a list of tokenised phones, but a vector where phones are separated by a specified character (like space, or a dot). You can set `split = FALSE` and the default separator (a space) will be used to separate phones in the resulting string. The separator character can be specified with `sep`.
 
 ```{r}
 phonetise(ipa, multi = ph, split = FALSE, sep = ".")
+```
+
+## Using tibbles
+
+A common use case of the `phonetise()` function is with tibble columns that have IPA transcriptions. The phonetisr package comes with `kl_swades`, a tibble with 195 Klingon words and their IPA transcription.
+
+```{r kl}
+library(tidyverse)
+data("kl_swadesh")
+kl_swadesh
+```
+
+Let's phonetise the `ipa` column. We first want to define multi-character phones.
+
+```{r kl-multi}
+kl_multi <- c(
+  "pʰ", "tʰ", "qʰ",
+  "tɬ", "tʃ", "qχ", 
+  "dʒ"
+)
+```
+
+Then, we can use `mutate()` to create a new column `phones` with phonetised transcriptions.
+
+```{r kl-phones}
+kl_swadesh <- kl_swadesh |> 
+  mutate(
+    phones = phonetise(ipa, multi = kl_multi)
+  )
+
+kl_swadesh
+```
+
+`phones` is a "list" column, so `kl_swadesh` is "nested": see the [Nested data](https://tidyr.tidyverse.org/articles/nest.html) vignette of tidyr.
+
+A common operation is to count the number of occurrences of each phone. We can easily do that by first "unnesting" the `phones` column.
+
+```{r kl-unnest}
+kl_unnest <- kl_swadesh |> 
+  unnest(phones)
+kl_unnest
+```
+
+Then we can count each phone with `count()`.
+
+```{r kl-count}
+kl_unnest |> 
+  count(phones, sort = TRUE)
+```
+
+And also plot the counts.
+
+```{r kl-count-plot, fig.width=5}
+kl_unnest |> 
+  count(phones, sort = TRUE) |> 
+  ggplot(aes(reorder(phones, desc(n)), n)) +
+  geom_bar(stat = "identity")
+```
+
+## Add phonetic features
+
+The package comes with a function `featurise()` which takes a vector or list of phonetised words and returns a tibble with counts and phonetic features of the phones.
+
+```{r kl-feat}
+kl_feat <- featurise(kl_swadesh$phones)
+kl_feat
+```
+
+We can use the info for plotting.
+
+```{r kl-feat-plot, fig.width=5}
+kl_feat |> 
+  ggplot(aes(reorder(phone, desc(count)), count, fill = type)) +
+  geom_bar(stat = "identity")
+```
+
+`featurise()` uses the info stored in `ipa_symbols`, which comes with the package. Note that the phonetic features included are only based on the IPA tables: the package is not aware of language-specific features.
+
+```{r ipa-symbols}
+data("ipa_symbols")
+ipa_symbols
 ```
 

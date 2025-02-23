@@ -1,17 +1,17 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# phonetisr: A Very Naive IPA Tokeniser
+# phonetisr: A Naive IPA Tokeniser
 
 <!-- badges: start -->
 
-[![](https://img.shields.io/badge/devel%20version-0.0.5-blue.svg)](https://github.com/phonetisr)
-[![](https://img.shields.io/badge/devel%20version-0.0.5-orange.svg)](https://github.com/phonetisr)
+[![](https://img.shields.io/badge/devel%20version-0.0.5.9000-blue.svg)](https://github.com/phonetisr)
+[![](https://img.shields.io/badge/devel%20version-0.0.5.9000-orange.svg)](https://github.com/phonetisr)
 [![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-This package is a (very naive) tokeniser of phonetic transcriptions in
-the [International Phonetic
+This package is a (naive) tokeniser of phonetic transcriptions in the
+[International Phonetic
 Alphabet](https://www.internationalphoneticassociation.org/content/ipa-chart)
 (IPA).
 
@@ -42,6 +42,14 @@ ph <- c("pʰ", "tʰ", "kʰ", "ã", "m̥")
 
 # Tokenise strings
 phonetise(ipa, multi = ph)
+#> [[1]]
+#> [1] "pʰ" "ã"  "kʰ"
+#> 
+#> [[2]]
+#> [1] "tʰ" "u"  "m̥" 
+#> 
+#> [[3]]
+#> [1] "ɛ"  "kʰ" "ɯ"
 ```
 
 ## Roadmap

@@ -4,7 +4,7 @@
 \name{phonetisr-package}
 \alias{phonetisr}
 \alias{phonetisr-package}
-\title{phonetisr: A Very Naive IPA Tokeniser}
+\title{phonetisr: A Naive IPA Tokeniser}
 \description{
 It provides users with functions to parse International Phonetic Alphabet transcriptions into phones for further processing.
 }

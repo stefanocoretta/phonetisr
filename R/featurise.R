@@ -8,6 +8,12 @@ data("ipa_symbols", envir = environment())
 #'
 #' @return A tibble.
 #' @export
+#'
+#' @examples
+#' ipa <- c("ada", "buba", "kiki", "saʃa")
+#' ip_ph <- phonetise(ipa)
+#' featurise(ip_ph)
+#'
 featurise <- function(phlist) {
     feats <- tibble::tibble(
         phone = unlist(phlist)

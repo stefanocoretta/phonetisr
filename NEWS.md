@@ -1,3 +1,11 @@
+# phonetisr v0.1.0
+
+* Added vignette.
+
+* Updated documentation of `featurise()`.
+
+
+
 # phonetisr v0.0.5
 
 ## Fixed
