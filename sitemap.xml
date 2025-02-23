@@ -1,48 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://stefanocoretta.github.io/phonetisr/404.html</loc>
-  </url>
-  <url>
-    <loc>https://stefanocoretta.github.io/phonetisr/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://stefanocoretta.github.io/phonetisr/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://stefanocoretta.github.io/phonetisr/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://stefanocoretta.github.io/phonetisr/index.html</loc>
-  </url>
-  <url>
-    <loc>https://stefanocoretta.github.io/phonetisr/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://stefanocoretta.github.io/phonetisr/reference/featurise.html</loc>
-  </url>
-  <url>
-    <loc>https://stefanocoretta.github.io/phonetisr/reference/get_no_ipa.html</loc>
-  </url>
-  <url>
-    <loc>https://stefanocoretta.github.io/phonetisr/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://stefanocoretta.github.io/phonetisr/reference/ipa_symbols.html</loc>
-  </url>
-  <url>
-    <loc>https://stefanocoretta.github.io/phonetisr/reference/kl_swadesh.html</loc>
-  </url>
-  <url>
-    <loc>https://stefanocoretta.github.io/phonetisr/reference/ph_search.html</loc>
-  </url>
-  <url>
-    <loc>https://stefanocoretta.github.io/phonetisr/reference/phonetise.html</loc>
-  </url>
-  <url>
-    <loc>https://stefanocoretta.github.io/phonetisr/reference/phonetisr-package.html</loc>
-  </url>
-  <url>
-    <loc>https://stefanocoretta.github.io/phonetisr/reference/pipe.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://stefanocoretta.github.io/phonetisr/404.html</loc></url>
+<url><loc>https://stefanocoretta.github.io/phonetisr/LICENSE-text.html</loc></url>
+<url><loc>https://stefanocoretta.github.io/phonetisr/LICENSE.html</loc></url>
+<url><loc>https://stefanocoretta.github.io/phonetisr/articles/index.html</loc></url>
+<url><loc>https://stefanocoretta.github.io/phonetisr/articles/phonetise.html</loc></url>
+<url><loc>https://stefanocoretta.github.io/phonetisr/authors.html</loc></url>
+<url><loc>https://stefanocoretta.github.io/phonetisr/index.html</loc></url>
+<url><loc>https://stefanocoretta.github.io/phonetisr/news/index.html</loc></url>
+<url><loc>https://stefanocoretta.github.io/phonetisr/reference/featurise.html</loc></url>
+<url><loc>https://stefanocoretta.github.io/phonetisr/reference/get_no_ipa.html</loc></url>
+<url><loc>https://stefanocoretta.github.io/phonetisr/reference/index.html</loc></url>
+<url><loc>https://stefanocoretta.github.io/phonetisr/reference/ipa_symbols.html</loc></url>
+<url><loc>https://stefanocoretta.github.io/phonetisr/reference/kl_swadesh.html</loc></url>
+<url><loc>https://stefanocoretta.github.io/phonetisr/reference/ph_search.html</loc></url>
+<url><loc>https://stefanocoretta.github.io/phonetisr/reference/phonetise.html</loc></url>
+<url><loc>https://stefanocoretta.github.io/phonetisr/reference/phonetisr-package.html</loc></url>
+<url><loc>https://stefanocoretta.github.io/phonetisr/reference/pipe.html</loc></url>
 </urlset>
+
