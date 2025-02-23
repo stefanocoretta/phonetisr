@@ -10,7 +10,7 @@ data("ipa_symbols", envir = environment())
 #' @export
 #'
 #' @examples
-#' ipa <- c("ada", "buba", "kiki", "saʃa")
+#' ipa <- c("ada", "buba", "kiki", "sa\u0283a")
 #' ip_ph <- phonetise(ipa)
 #' featurise(ip_ph)
 #'

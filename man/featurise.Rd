@@ -16,7 +16,7 @@ A tibble.
 This function counts occurrences of phones and includes basic phonetic features.
 }
 \examples{
-ipa <- c("ada", "buba", "kiki", "saʃa")
+ipa <- c("ada", "buba", "kiki", "sa\u0283a")
 ip_ph <- phonetise(ipa)
 featurise(ip_ph)
 

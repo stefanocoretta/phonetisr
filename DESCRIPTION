@@ -1,7 +1,7 @@
 Package: phonetisr
 Title: A Naive IPA Tokeniser
 Version: 0.1.0
-Date: 2025/02/23
+Date: 2025-02-23
 Authors@R: 
     person(given = "Stefano",
            family = "Coretta",
