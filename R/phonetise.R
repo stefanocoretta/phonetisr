@@ -32,15 +32,16 @@
 #' @return A list of phonetised strings.
 #'
 #' @examples
-#' ipa <- c("pʰãkʰ", "tʰum̥", "ɛkʰɯ")
-#' ph <- c("pʰ", "tʰ", "kʰ", "ã", "m̥")
+#' # using unicode escapes for CRAN policy
+#' ipa <- c("p\u02B0a\u0303k\u02B0", "t\u02B0um\u0325", "\u025Bk\u02B0\u026F")
+#' ph <- c("p\u02B0", "t\u02B0", "k\u02B0", "a\u0303", "m\u0325")
 #'
 #' phonetise(ipa, multi = ph)
 #'
 #' ph_2 <- ph[4:5]
 #'
-#' # Match any character followed by <ʰ> with ".ʰ".
-#' phonetise(ipa, multi = ph_2, regex = ".ʰ")
+#' # Match any character followed by <\u02B0> with ".\u02B0".
+#' phonetise(ipa, multi = ph_2, regex = ".\u02B0")
 #'
 #' # Same result.
 #' phonetise(ipa, regex = ".(\u0303|\u0325|\u02B0)")
@@ -163,8 +164,8 @@ phonetise <- function(strings, multi = NULL, regex = NULL, split = TRUE,
   }
 
   multi_len <- multi_len + 1
-  # Note that "ç" below is actually <U+0063,U+0327>
-  multi <- c(multi, "ç")
+  # Note that "\u0063\u0327" below is actually <U+0063,U+0327>
+  multi <- c(multi, "\u0063\u0327")
 
   ####
   # Main tokeniser procedure ########################################
@@ -228,7 +229,7 @@ phonetize <- phonetise
 #' @return A vector.
 #'
 #' @examples
-#' get_no_ipa(c("a", "ʃ", ">"))
+#' get_no_ipa(c("a", "\0283", ">"))
 #'
 #' @export
 get_no_ipa <- function(chars) {

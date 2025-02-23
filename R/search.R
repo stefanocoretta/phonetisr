@@ -10,8 +10,8 @@
 #' @export
 #'
 #' @examples
-#' ipa <- c("pʰãkʰ", "tʰum̥", "ɛkʰɯ", "pun")
-#' ph <- c("pʰ", "tʰ", "kʰ", "ã", "m̥")
+#' ipa <- c("p\u02B0a\u0303k\u02B0", "t\u02B0um\u0325", "\u025Bk\u02B0\u026F", "pun")
+#' ph <- c("p\u02B0", "t\u02B0", "k\u02B0", "a\u0303", "m\u0325")
 #' ipa_ph <- phonetise(ipa, multi = ph)
 #' ph_search(ipa_ph, "#CV")
 #'
@@ -19,7 +19,7 @@
 #' ph_search(ipa_ph, "p")
 #'
 #' # use regular expressions
-#' ph_search(ipa_ph, "pʰ?V")
+#' ph_search(ipa_ph, "p\u02B0?V")
 ph_search <- function(phlist, phonex) {
 
   feats <- featurise(phlist)

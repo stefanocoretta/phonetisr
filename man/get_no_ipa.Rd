@@ -16,6 +16,6 @@ A vector.
 Given a vector of characters, it returns those which are not part of the IPA.
 }
 \examples{
-get_no_ipa(c("a", "ʃ", ">"))
+get_no_ipa(c("a", "\0283", ">"))
 
 }

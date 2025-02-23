@@ -27,6 +27,7 @@ Depends:
     R (>= 2.10)
 Suggests: 
     rmarkdown,
-    knitr
+    knitr,
+    tidyverse
 VignetteBuilder: knitr
 URL: https://stefanocoretta.github.io/phonetisr/
