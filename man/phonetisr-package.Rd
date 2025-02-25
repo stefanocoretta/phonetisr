@@ -6,11 +6,12 @@
 \alias{phonetisr-package}
 \title{phonetisr: A Naive IPA Tokeniser}
 \description{
-It provides users with functions to parse International Phonetic Alphabet transcriptions into phones for further processing.
+It provides users with functions to parse International Phonetic Alphabet (IPA) transcriptions into individual phones (tokenisation) based on default IPA symbols and optional user specified multi-character phones. The tokenised transcriptions can be used for obtaining counts of phones or for searching for words matching phonetic patterns.
 }
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://github.com/stefanocoretta/phonetisr}
   \item \url{https://stefanocoretta.github.io/phonetisr/}
 }
 

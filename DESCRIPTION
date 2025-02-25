@@ -8,7 +8,11 @@ Authors@R:
            role = c("aut", "cre"),
            email = paste0("stefano.coretta", "@", "gmail.com"),
            comment = c(ORCID = "0000-0001-9627-5532"))
-Description: It provides users with functions to parse International Phonetic Alphabet transcriptions into phones for further processing.
+Description: It provides users with functions to parse International Phonetic
+  Alphabet (IPA) transcriptions into individual phones (tokenisation) based on
+  default IPA symbols and  optional user specified multi-character phones. The
+  tokenised transcriptions can be used for obtaining counts of phones or for
+  searching for words matching phonetic patterns.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

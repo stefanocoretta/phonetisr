@@ -1,3 +1,9 @@
+## Resubmission
+
+- I have included the acronym in the description.
+
+- I have extended the Description field with more info about the package capabilities.
+
 ## R CMD check results
 
 0 errors | 0 warnings | 1 note
