@@ -5,6 +5,10 @@
 
 <!-- badges: start -->
 
+[![](https://img.shields.io/badge/doi-10.5281/zenodo.14987854-blue.svg)](https://doi.org/10.5281/zenodo.14987854)
+[![](https://www.r-pkg.org/badges/version/phonetisr?color=blue)](https://cran.r-project.org/package=phonetisr)
+[![CRAN
+checks](https://badges.cranchecks.info/summary/phonetisr.svg)](https://cran.r-project.org/web/checks/check_results_phonetisr.html)
 [![](https://img.shields.io/badge/devel%20version-0.1.0-orange.svg)](https://github.com/stefanocoretta/phonetisr)
 <!-- badges: end -->
 
@@ -19,12 +23,15 @@ analyses.
 
 ## Installation
 
+Phonetisr is on CRAN so you can install it with
+`install.packages("phonetisr")`.
+
 You can install the development version from
 [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("stefanocoretta/phonetisr")
+remotes::install_github("stefanocoretta/phonetisr@devel")
 ```
 
 ## Usage

@@ -1,7 +1,5 @@
 ---
-output:
-  github_document:
-    html_preview: false
+output: github_document
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -18,6 +16,9 @@ knitr::opts_chunk$set(
 # phonetisr: A Naive IPA Tokeniser
 
 <!-- badges: start -->
+`r badger::badge_doi(doi = "10.5281/zenodo.14987854", color = "blue")`
+`r badger::badge_cran_release("phonetisr", "blue")`
+`r badger::badge_cran_checks("phonetisr")`
 `r badger::badge_devel(color = "orange")`
 <!-- badges: end -->
 
@@ -27,11 +28,13 @@ With phonetisr, you can parse texts and word lists transcribed in IPA and tokeni
 
 ## Installation
 
+Phonetisr is on CRAN so you can install it with `install.packages("phonetisr")`.
+
 You can install the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("stefanocoretta/phonetisr")
+remotes::install_github("stefanocoretta/phonetisr@devel")
 ```
 
 ## Usage
