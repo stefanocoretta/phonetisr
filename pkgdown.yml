@@ -3,7 +3,7 @@ pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   phonetise: phonetise.html
-last_built: 2025-03-07T09:43Z
+last_built: 2025-03-07T09:54Z
 urls:
   reference: https://stefanocoretta.github.io/phonetisr/reference
   article: https://stefanocoretta.github.io/phonetisr/articles
